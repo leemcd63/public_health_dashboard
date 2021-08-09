@@ -79,20 +79,19 @@ alcohol_deaths_area <- subset(alcohol_deaths_council_area, select = -c(35)) %>%
 alcohol_deaths_area <- alcohol_deaths_area %>%
   mutate(count = alcohol_deaths_area_1)
 
-#colnames(alcohol_deaths_area) <- c("year_of_death", "all_scotland", "aberdeen_city", "aberdeenshire",
-                                   #"angus", "argyll_and_bute", "city_of_edinburgh",
-                                   #"clackmannanshire", "dumfries_and_galloway",
-                                   #"dundee_city", "east_ayrshire", "east_dunbartonshire",
-                                   #"east_lothian", "east_renfrewshire", "falkirk",
-                                   #"fife", "glasgow_city", "highland", "inverclyde",
-                                   #"midlothian", "moray", "na_h_eileanan_siar",
-                                   #"north_ayrshire", "north_lanarkshire", 
-                                   #"orkney_islands", "perth_and_kinross",
-                                   #"renfrewshire", "scottish_borders", 
-                                   #"shetland_islands", "south_ayrshire",
-                                   #"south_lanarkshire", "stirling", 
-                                   #"westdunbartonshire", "west_lothian")
-
+colnames(alcohol_deaths_area) <- c("year_of_death", "All Scotland", "Aberdeen City", "Aberdeenshire",
+                                                                     "Angus", "Argyll and Bute", "City of Edinburgh",
+                                                                     "Clackmannanshire", "Dumfries and Galloway",
+                                                                     "Dundee City", "East Ayrshire", "East Dunbartonshire",
+                                                                     "East Lothian", "East Renfrewshire", "Falkirk",
+                                                                     "Fife", "Glasgow City", "Highland", "Inverclyde",
+                                                                     "Midlothian", "Moray", "Eilean Siar",
+                                                                     "North Ayrshire", "North Lanarkshire",
+                                                                     "Orkney Islands", "Perth and Kinross",
+                                                                     "Renfrewshire", "Scottish Borders",
+                                                                     "Shetland Islands", "South Ayrshire",
+                                                                     "South Lanarkshire", "Stirling",
+                                                                     "West Dunbartonshire", "West Lothian")
 
 alcohol_deaths_area_pivoted <- alcohol_deaths_area %>%
   pivot_longer(cols = c(2:34), names_to="area", values_to ="count")
