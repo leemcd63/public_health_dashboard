@@ -58,11 +58,11 @@ ui <- dashboardPage(skin = "blue",
                                          tabsetPanel(
                                            
                                            tabPanel("Map",
-                                                    leafletOutput("life_expectancy_input")
+                                                    leafletOutput("life_expectancy_map")
                                            ),
                                            
                                            tabPanel("Graph",
-                                                    plotOutput("life_expectancy_input", height = 500)
+                                                    plotOutput("life_expectancy_plot", height = 500)
                                            )
                                          )
                                   )
@@ -100,11 +100,11 @@ ui <- dashboardPage(skin = "blue",
                                        tabsetPanel(
                                          
                                          tabPanel("Map",
-                                                  leafletOutput("drug_input")
+                                                  leafletOutput("drug_map")
                                          ),
                                          
                                          tabPanel("Graph",
-                                                  plotOutput("drug_input", height = 500) 
+                                                  plotOutput("drug_plot", height = 500) 
                                          )
                                        )
                                 )
@@ -141,11 +141,11 @@ ui <- dashboardPage(skin = "blue",
                                        tabsetPanel(
                                          
                                          tabPanel("Map",
-                                                  leafletOutput("alcohol_input")
+                                                  leafletOutput("alcohol_map")
                                          ),
                                          
                                          tabPanel("Graph",
-                                                  plotOutput("alcohol_input", height = 500) 
+                                                  plotOutput("alcohol_plot", height = 500) 
                                          )
                                        )
                                 )
