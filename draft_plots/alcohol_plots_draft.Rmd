@@ -37,13 +37,13 @@ scotland_shape <- st_transform(scotland_shape, "+proj=longlat +datum=WGS84")
 alcohol_area <- alcohol_area %>% 
   filter(area != "All Scotland") %>% 
   group_by(area) %>% 
-  summarise(area, 
-            num_deaths = count)
+  summarise(area, year_of_death, 
+            avg_num_deaths = mean(count))
 ```
 
 ```{r}
 
-pal <- colorBin("YlOrRd", domain = alcohol_area$num_deaths)
+pal <- colorBin("Greens", domain = alcohol_area$num_deaths)
 
 death_labels <- sprintf(
     "<strong>%s</strong><br/>%g deaths",
@@ -58,8 +58,7 @@ alcohol_area %>%
   addPolygons(fillColor = ~pal(num_deaths),
               weight = 1,
               opacity = 1,
-              color = "white",
-              dashArray = "3",
+              color = "black",
               fillOpacity = 0.7,
               highlightOptions = highlightOptions(color = "white", weight = 2,
                                                   bringToFront = TRUE),
