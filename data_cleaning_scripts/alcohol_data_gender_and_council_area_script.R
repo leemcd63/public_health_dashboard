@@ -2,11 +2,10 @@
 
 library(tidyverse)
 library(janitor)
+library(here)
 
-alcohol_data_female <- read_csv("~/public_health_dashboard/raw_data/alcohol_deaths/alcohol_deaths_female_age_group.csv")
-
-
-alcohol_data_male <- read_csv("~/public_health_dashboard/raw_data/alcohol_deaths/alcohol_deaths_male_age_group.csv")
+alcohol_data_female <- read_csv(here("public_health_dashboard/raw_data/alcohol_deaths/alcohol_deaths_female_age_group.csv"))
+alcohol_data_male <- read_csv(here("public_health_dashboard/raw_data/alcohol_deaths/alcohol_deaths_male_age_group.csv"))
 
 
 
@@ -65,19 +64,19 @@ alcohol_deaths_area <- subset(alcohol_deaths_council_area, select = -c(35)) %>%
 alcohol_deaths_area <- alcohol_deaths_area %>%
   mutate(count = alcohol_deaths_area_1)
 
-colnames(alcohol_deaths_area) <- c("year_of_death", "all_scotland", "aberdeen_city", "aberdeenshire",
-                                   "angus", "argyll_and_bute", "city_of_edinburgh",
-                                   "clackmannanshire", "dumfries_and_galloway",
-                                   "dundee_city", "east_ayrshire", "east_dunbartonshire",
-                                   "east_lothian", "east_renfrewshire", "falkirk",
-                                   "fife", "glasgow_city", "highland", "inverclyde",
-                                   "midlothian", "moray", "na_h_eileanan_siar",
-                                   "north_ayrshire", "north_lanarkshire", 
-                                   "orkney_islands", "perth_and_kinross",
-                                   "renfrewshire", "scottish_borders", 
-                                   "shetland_islands", "south_ayrshire",
-                                   "south_lanarkshire", "stirling", 
-                                   "westdunbartonshire", "west_lothian")
+#colnames(alcohol_deaths_area) <- c("year_of_death", "all_scotland", "aberdeen_city", "aberdeenshire",
+#                                   "angus", "argyll_and_bute", "city_of_edinburgh",
+ #                                  "clackmannanshire", "dumfries_and_galloway",
+  #                                 "east_lothian", "east_renfrewshire", "falkirk",
+  #                                 "dundee_city", "east_ayrshire", "east_dunbartonshire",
+   #                                "midlothian", "moray", "na_h_eileanan_siar",
+    #                               "north_ayrshire", "north_lanarkshire", 
+    #                               "fife", "glasgow_city", "highland", "inverclyde",
+     #                              "orkney_islands", "perth_and_kinross",
+      #                             "renfrewshire", "scottish_borders", 
+       #                            "shetland_islands", "south_ayrshire",
+        #                           "south_lanarkshire", "stirling", 
+         #                          "westdunbartonshire", "west_lothian")
 
 
 alcohol_deaths_area_pivoted <- alcohol_deaths_area %>%
