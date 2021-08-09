@@ -102,7 +102,7 @@ for (i in 2009:2019) {
   df_long <- eval(df_input) %>%
     # Rename area names for consistency
     mutate(council_area = case_when(
-            str_detect(council_area, "Eilean") ~ "Na h-Eileanan Siar",
+            str_detect(council_area, "Eilean") ~ "Eilean Siar",
             str_detect(council_area, "Edinburgh") ~ "City of Edinburgh",
             TRUE ~ council_area
           ),
