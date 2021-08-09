@@ -43,6 +43,12 @@ alcohol_data_male_pivoted <- alcohol_data_male_2 %>%
   mutate(gender = "male")
 
 alcohol_deaths_combined <- rbind(alcohol_data_female_pivoted, alcohol_data_male_pivoted)
+
+alcohol_deaths_count <- alcohol_deaths_combined$count %>% 
+  as.numeric(count)
+
+alcohol_deaths_combined <- alcohol_deaths_combined %>%
+  mutate(count = alcohol_deaths_count)
   
 write.csv(alcohol_deaths_combined, "~/public_health_dashboard/clean_data/alcohol_deaths_clean.csv")
   
@@ -53,8 +59,11 @@ alcohol_deaths_council_area <- read_csv("~/public_health_dashboard/raw_data/alco
   
 
 alcohol_deaths_area <- subset(alcohol_deaths_council_area, select = -c(35)) %>%
-  slice(-c(1:34, 46:94))
+  slice(-c(1:34, 46:94)) 
 
+
+alcohol_deaths_area <- alcohol_deaths_area %>%
+  mutate(count = alcohol_deaths_area_1)
 
 colnames(alcohol_deaths_area) <- c("year_of_death", "all_scotland", "aberdeen_city", "aberdeenshire",
                                    "angus", "argyll_and_bute", "city_of_edinburgh",
@@ -74,5 +83,17 @@ colnames(alcohol_deaths_area) <- c("year_of_death", "all_scotland", "aberdeen_ci
 alcohol_deaths_area_pivoted <- alcohol_deaths_area %>%
   pivot_longer(cols = c(2:34), names_to="area", values_to ="count")
 
+
+alcohol_deaths_area_pivoted <- alcohol_deaths_area_pivoted %>%
+  as.numeric(count)
+
+alcohol_deaths_area_pivoted_1 <- alcohol_deaths_area_pivoted$count %>%
+  str_remove_all(fixed(","))
+alcohol_deaths_area_pivoted_1 <- as.numeric(alcohol_deaths_area_pivoted_1)
+
+alcohol_deaths_area_pivoted <- alcohol_deaths_area_pivoted %>%
+  mutate(count = alcohol_deaths_area_pivoted_1)
+
 write.csv(alcohol_deaths_area, "~/public_health_dashboard/clean_data/alcohol_deaths_area.csv")
+
 
