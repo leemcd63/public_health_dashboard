@@ -14,8 +14,6 @@ overview_data <- reactive({
     output$life_expectancy_plot({
       [GGPLOT FOR LIFE EXPECTANCY]
     })
-    
-    
   })
   
   # DRUGS TAB -------------------------------------------------------------
