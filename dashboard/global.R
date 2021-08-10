@@ -6,7 +6,7 @@ library(shinydashboard)
 library(leaflet)
 library(here)
 library(sf)
-
+library(plotly)
 
 drug_deaths <- read_csv(here("clean_data/drug_deaths_clean.csv"))
 

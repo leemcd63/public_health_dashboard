@@ -74,36 +74,51 @@ ui <- dashboardPage(skin = "blue",
                         # DRUGS PANEL -------------------------------------------------------------
                         tabItem(tabName = "drug_deaths",
                                 fluidRow(
-                                  column(width = 2, align = "center",
-                                         box(width = NULL, solidHeader = TRUE, background = "green",
+                                  column(width = 6,
+                                         box(width = NULL, solidHeader = TRUE, background = "blue",
+                                             column(width = 6, align = "center",
+                                                    selectInput("drug_map_year",
+                                                                label = "Year:",
+                                                                choices = c("All", 
+                                                                            sort(unique(drug_deaths$year))),
+                                                                selected = "All")
+                                             ),
+                                             column(width = 6, align = "center",
+                                                    selectInput("drug_map_name",
+                                                                label = "Select Drug:",
+                                                                choices = sort(unique(drug_deaths$drug_name)),
+                                                                selected = "All drug-related deaths")
+                                             )
                                              
-                                             selectInput("drug_map_year",
-                                                         label = "Year:",
-                                                         choices = c("All", 
-                                                                     sort(unique(drug_deaths$year))),
-                                                         selected = "All"),
-                                             
-                                             selectInput("drug_map_name",
-                                                         label = "Select Drug:",
-                                                         choices = sort(unique(drug_deaths$drug_name)),
-                                                         selected = "All drug-related deaths")
-                                             
-                                             
-                                         )
+                                         ),
+                                         
+                                         
+                                         
+                                         
+                                         leafletOutput("drug_map", height = 600)
+                                        
+                                         
                                   ),
                                   
-                                  
-                                  column(width = 5,
-                                         tabsetPanel(
-                                           
-                                           tabPanel("Map",
-                                                    leafletOutput("drug_map", height = 700)
-                                           )
-                                           
-                                           #tabPanel("Graph",
-                                           #         plotOutput("drug_plot", height = 500) 
-                                           #)
-                                         )
+                                  column(width = 6, align = "center",
+                                         
+                                         box(width = NULL, solidHeader = TRUE, background = "blue",
+                                             column(width = 6, align = "center",
+                                                    selectInput("drug_plot_area",
+                                                                label = "Select Area:",
+                                                                choices = c(unique(drug_deaths$council_area)))
+                                             ),
+                                             column(width = 6, align = "center",
+                                                    selectInput("drug_plot_name",
+                                                                label = "Select Drug:",
+                                                                choices = sort(unique(drug_deaths$drug_name)),
+                                                                selected = "All drug-related deaths")
+                                             )
+                                             
+                                         ),
+                                         
+                                         plotlyOutput("drug_plot", height = 600)
+                                         
                                   )
                                   
                                   

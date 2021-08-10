@@ -18,9 +18,9 @@ server <- function(input, output, session) {
   
   # DRUGS TAB -------------------------------------------------------------
   
-  
+  # DRUG MAP SELECTINPUT CHANGES
   observe({
-    # Update drug selections based on year input
+    # Update drug map selections based on year input
     if (input$drug_map_year != "All") {
       drug_choice_selection <- drug_deaths %>% 
         filter(year == input$drug_map_year) %>%
@@ -44,8 +44,8 @@ server <- function(input, output, session) {
     }
   })
   
-  
-  drugs_plot_data <- reactive({
+  # DRUG MAP DATA 
+  drugs_map_data <- reactive({
     
     # If all years is selected, filter for all years
     if(input$drug_map_year == "All") {
@@ -55,7 +55,7 @@ server <- function(input, output, session) {
     }
     
     # Filter data for leaflet plot
-    drugs_plot_data <- drug_deaths %>%
+    drugs_map_data <- drug_deaths %>%
       filter(council_area != "Scotland",
              drug_name %in% input$drug_map_name,
              year %in% drugs_map_year_selection) %>%
@@ -68,32 +68,30 @@ server <- function(input, output, session) {
   })
   
   
-  
+  # DRUG MAP OUTPUT 
   output$drug_map <- renderLeaflet({
     
-    drug_death_data <- drugs_plot_data()
+    drugs_map_data <- drugs_map_data()
     
     # Labels variable for leaflet plot
-    drug_death_labels <- sprintf(
+    drugs_map_labels <- sprintf(
       "<strong>%s</strong><br/>%g deaths",
-      drug_death_data$council_area, 
-      drug_death_data$num_deaths) %>% 
+      drugs_map_data$council_area, 
+      drugs_map_data$num_deaths) %>% 
       lapply(htmltools::HTML)
     
     if (input$drug_map_year == "All" & input$drug_map_name == "All drug-related deaths"){
-      drugs_plot_bins <- c(0, 50, 100, 200, 500, 1000, 2000, Inf)
+      drugs_map_bins <- c(0, 50, 100, 200, 500, 1000, 2000, Inf)
     } else {
-      drugs_plot_bins <- c(0, 5, 15, 30, 50, 100, 250, Inf)
+      drugs_map_bins <- c(0, 5, 15, 30, 50, 100, 250, Inf)
     }
     
-    
-    
-    pal <- colorBin("Purples", domain = drug_death_data$num_deaths, bins = drugs_plot_bins)
+    pal <- colorBin("Purples", domain = drugs_map_data$num_deaths, bins = drugs_map_bins)
     
     # Initialise plot
-    drug_death_data %>%
+    drugs_map_data %>%
       leaflet() %>%
-      setView(lng = -4.2026, lat = 57.2, zoom = 6, options = list()) %>%
+      setView(lng = -4.2026, lat = 57.8, zoom = 6, options = list()) %>%
       addProviderTiles(providers$CartoDB.Positron) %>%
       addPolygons(fillColor = ~pal(num_deaths),
                   weight = 0.75,
@@ -103,7 +101,7 @@ server <- function(input, output, session) {
                   fillOpacity = 0.9,
                   highlightOptions = highlightOptions(color = "white", weight = 2,
                                                       bringToFront = TRUE),
-                  label = drug_death_labels,
+                  label = drugs_map_labels,
                   labelOptions = labelOptions(
                     style = list("font-weight" = "normal", padding = "3px 8px"),
                     textsize = "15px",
@@ -112,9 +110,27 @@ server <- function(input, output, session) {
                 position = "bottomright")
   })
   
-  #output$drug_plot({
-  # [GGPLOT FOR DRUGS]
-  #})
+  drug_plot_data <- reactive({
+    drug_plot_data <- drug_deaths %>%
+      filter(drug_name %in% input$drug_plot_name,
+             council_area %in% input$drug_plot_area)
+  })
+  
+  
+  output$drug_plot <- renderPlotly({
+    drug_plot_data() %>%
+      ggplot() +
+      aes(x = year, y = num_deaths) +
+      geom_line() +
+      geom_point() +
+      scale_x_continuous(n.breaks = 10) +
+      scale_y_continuous(n.breaks = 8) +
+      theme_minimal() +
+      labs(x = "\nYear",
+           y = "Number of Deaths\n")
+    
+    
+  })
   
   
   # ALCOHOL TAB -------------------------------------------------------------
