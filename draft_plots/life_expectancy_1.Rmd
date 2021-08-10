@@ -48,3 +48,41 @@ print(life_exp_graph)
 
 ```
 
+```{r}
+
+# Layered bars chart
+
+life_expectancy_test <- life_expectancy_data %>%
+  filter(age == "0 years",
+         local_authority == "City of Edinburgh") %>%
+  mutate(measurement = factor(measurement, levels = c("95% Upper Confidence Limit",
+                                                      "Count", "95% Lower Confidence Limit"))) %>%
+  group_by(sex, measurement) %>%
+  distinct() %>%
+  summarise(value = mean(value))
+
+xlim_low <- min(life_expectancy_test$value) - 0.5
+xlim_high <- max(life_expectancy_test$value) + 0.5
+
+
+ggplot(life_expectancy_test) + 
+  geom_col(show.legend = FALSE,
+           stat = "identity", 
+           color = "black", 
+           width = 2, 
+           position = position_dodge(width = 0.0),
+           alpha = 1.5,
+           aes(y = sex, x = value, fill = measurement)) +
+  labs(title="Life Expectancy In Scotland By Gender From 2009 to 2019", 
+       y="Gender", 
+       x = "Life Expectancy In Years") +
+  coord_cartesian(xlim = c(xlim_low,xlim_high)) +
+  scale_x_continuous(n.breaks = 10) +
+  scale_fill_manual(values = bar_colours)
+
+
+bar_colours <- c("white", "purple", "white")
+
+```
+
+
