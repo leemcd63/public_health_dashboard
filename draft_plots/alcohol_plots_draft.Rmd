@@ -1,0 +1,74 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(plotly)
+library(leaflet)
+library(sf)
+library(here)
+```
+
+```{r}
+alcohol_deaths <- read_csv(here("clean_data/alcohol_deaths_clean.csv"))
+alcohol_area <- read_csv(here("clean_data/alcohol_deaths_area.csv"))
+```
+
+```{r}
+alcohol_deaths %>% 
+  filter(age_group != "all_ages" & age_group != "average_age") %>% 
+  ggplot() +
+  aes(x = year_of_death, y = count, fill = gender) +
+  geom_col() +
+  scale_x_continuous(breaks = c(2009:2019)) 
+```
+
+```{r}
+scotland_shape <- st_read(here("clean_data/shape_data/pub_las.shp")) %>% 
+  st_simplify(dTolerance = 1000)
+```
+
+```{r}
+scotland_shape <- st_transform(scotland_shape, "+proj=longlat +datum=WGS84")
+```
+
+```{r}
+alcohol_area_clean <- alcohol_area %>% 
+  filter(area != "All Scotland") %>% 
+  group_by(area) %>% 
+  summarise(area, 
+            num_deaths = count) %>% 
+  distinct()
+```
+
+```{r}
+bins <- c(0, 25, 50, 100, 150, 200)
+pal <- colorBin("Greens", domain = alcohol_area_clean$num_deaths, bins = bins)
+
+death_labels <- sprintf(
+    "<strong>%s</strong><br/>%g deaths",
+    alcohol_area_clean$area, alcohol_area_clean$num_deaths
+  ) %>% 
+  lapply(htmltools::HTML)
+
+alcohol_area_clean %>% 
+  left_join(scotland_shape, by = c("area" = "local_auth")) %>% 
+  st_as_sf() %>% 
+  leaflet() %>% 
+  addPolygons(fillColor = ~pal(num_deaths),
+              weight = 0.5,
+              opacity = 0.5,
+              color = "black",
+              fillOpacity = 0.5,
+              highlightOptions = highlightOptions(color = "white", weight = 2,
+                                                  bringToFront = TRUE),
+  label = death_labels,
+  labelOptions = labelOptions(
+    style = list("font-weight" = "normal", padding = "3px 8px"),
+    textsize = "15px",
+    direction = "auto")) %>%
+    addLegend(pal = pal, values = ~density, opacity = 0.7, title = NULL,
+    position = "bottomright")
+```
