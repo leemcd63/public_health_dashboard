@@ -22,7 +22,7 @@ alcohol_deaths %>%
   ggplot() +
   aes(x = year_of_death, y = count, fill = gender) +
   geom_col() +
-  scale_x_continuous(breaks = c(2009:2019)) 
+  scale_x_continuous(breaks = c(2009:2019))
 ```
 
 ```{r}
@@ -32,15 +32,14 @@ scotland_shape <- st_read(here("clean_data/shape_data/pub_las.shp")) %>%
 
 ```{r}
 scotland_shape <- st_transform(scotland_shape, "+proj=longlat +datum=WGS84")
-```
 
-```{r}
 alcohol_area_clean <- alcohol_area %>% 
+  select(-...1) %>% 
   filter(area != "All Scotland") %>% 
-  group_by(area) %>% 
+  group_by(area) %>%
+  filter(year_of_death == 2009) %>% 
   summarise(area, 
-            num_deaths = count) %>% 
-  distinct()
+            num_deaths = count) 
 ```
 
 ```{r}
@@ -50,10 +49,10 @@ pal <- colorBin("Greens", domain = alcohol_area_clean$num_deaths, bins = bins)
 death_labels <- sprintf(
     "<strong>%s</strong><br/>%g deaths",
     alcohol_area_clean$area, alcohol_area_clean$num_deaths
-  ) %>% 
+    ) %>% 
   lapply(htmltools::HTML)
 
-alcohol_area_clean %>% 
+alcohol_area_clean %>%
   left_join(scotland_shape, by = c("area" = "local_auth")) %>% 
   st_as_sf() %>% 
   leaflet() %>% 
@@ -72,3 +71,4 @@ alcohol_area_clean %>%
     addLegend(pal = pal, values = ~density, opacity = 0.7, title = NULL,
     position = "bottomright")
 ```
+

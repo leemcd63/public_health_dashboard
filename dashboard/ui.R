@@ -67,7 +67,7 @@ ui <- dashboardPage(skin = "blue",
                                          )
                                   )
                                 )
-                        )
+                        ),
                         
                         
                         # DRUGS PANEL -------------------------------------------------------------
@@ -108,7 +108,7 @@ ui <- dashboardPage(skin = "blue",
                                          )
                                        )
                                 )
-                        )
+                        ),
                         
                         # ALCOHOL PANEL -------------------------------------------------------------
                         
@@ -119,20 +119,20 @@ ui <- dashboardPage(skin = "blue",
                                              selectInput("gender_input",
                                                          label = "Gender:",
                                                          choices = c("All", 
-                                                                     sort(unique(SOURCE OBJECT HERE$gender))),
+                                                                     sort(unique(alcohol_deaths$gender))),
                                                          selected = "All"),
                                              
                                              selectInput("age_input",
-                                                         label = "Age:",
+                                                         label = "Age Group:",
                                                          choices = c("All", 
-                                                                     sort(unique(SOURCE OBJECT HERE$age))),
+                                                                     sort(unique(alcohol_deaths$age_group))),
                                                          selected = "All"),
                                              
-                                             checkboxGroupInput("alcohol_input_select",
-                                                                label = "Select Drug:"),
+                                             selectInput("year_input",
+                                                         label = "Year:",
+                                                         choices = c("All",
+                                                                     sort(unique(alcohol_area$year_of_death))))
                                              
-                                             
-                                             actionButton("alcohol_input_all", "Select/Deselect All")
                                          )
                                   )
                                 ),
