@@ -7,6 +7,7 @@ library(leaflet)
 library(here)
 library(sf)
 
+
 drug_deaths <- read_csv(here("clean_data/drug_deaths_clean.csv"))
 
 scotland_shape <- st_read(here("clean_data/shape_data/pub_las.shp")) %>%
