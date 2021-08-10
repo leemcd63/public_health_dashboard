@@ -8,11 +8,12 @@ library(tidyverse)
 library(plotly)
 library(leaflet)
 library(sf)
+library(here)
 ```
 
 ```{r}
-alcohol_deaths <- read_csv("clean_data/alcohol_deaths_clean.csv")
-alcohol_area <- read_csv("clean_data/alcohol_deaths_area.csv")
+alcohol_deaths <- read_csv(here("clean_data/alcohol_deaths_clean.csv"))
+alcohol_area <- read_csv(here("clean_data/alcohol_deaths_area.csv"))
 ```
 
 ```{r}
@@ -20,12 +21,12 @@ alcohol_deaths %>%
   filter(age_group != "all_ages" & age_group != "average_age") %>% 
   ggplot() +
   aes(x = year_of_death, y = count, fill = gender) +
-  geom_area() +
-  facet_wrap(~age_group)
+  geom_col() +
+  scale_x_continuous(breaks = c(2009:2019)) 
 ```
 
 ```{r}
-scotland_shape <- st_read("clean_data/shape_data/pub_las.shp") %>% 
+scotland_shape <- st_read(here("clean_data/shape_data/pub_las.shp")) %>% 
   st_simplify(dTolerance = 1000)
 ```
 
@@ -34,32 +35,33 @@ scotland_shape <- st_transform(scotland_shape, "+proj=longlat +datum=WGS84")
 ```
 
 ```{r}
-alcohol_area <- alcohol_area %>% 
+alcohol_area_clean <- alcohol_area %>% 
   filter(area != "All Scotland") %>% 
   group_by(area) %>% 
-  summarise(area, year_of_death, 
-            avg_num_deaths = mean(count))
+  summarise(area, 
+            num_deaths = count) %>% 
+  distinct()
 ```
 
 ```{r}
-
-pal <- colorBin("Greens", domain = alcohol_area$num_deaths)
+bins <- c(0, 25, 50, 100, 150, 200)
+pal <- colorBin("Greens", domain = alcohol_area_clean$num_deaths, bins = bins)
 
 death_labels <- sprintf(
     "<strong>%s</strong><br/>%g deaths",
-    alcohol_area$area, alcohol_area$num_deaths
+    alcohol_area_clean$area, alcohol_area_clean$num_deaths
   ) %>% 
   lapply(htmltools::HTML)
 
-alcohol_area %>% 
+alcohol_area_clean %>% 
   left_join(scotland_shape, by = c("area" = "local_auth")) %>% 
   st_as_sf() %>% 
   leaflet() %>% 
   addPolygons(fillColor = ~pal(num_deaths),
-              weight = 1,
-              opacity = 1,
+              weight = 0.5,
+              opacity = 0.5,
               color = "black",
-              fillOpacity = 0.7,
+              fillOpacity = 0.5,
               highlightOptions = highlightOptions(color = "white", weight = 2,
                                                   bringToFront = TRUE),
   label = death_labels,
@@ -70,4 +72,3 @@ alcohol_area %>%
     addLegend(pal = pal, values = ~density, opacity = 0.7, title = NULL,
     position = "bottomright")
 ```
-
