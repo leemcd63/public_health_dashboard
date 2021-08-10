@@ -2,12 +2,13 @@
 
 library(tidyverse)
 library(janitor)
+library(here)
 
 
-alcohol_data_female <- read_csv("~/public_health_dashboard/raw_data/alcohol_deaths/alcohol_deaths_female_age_group.csv")
+alcohol_data_female <- read_csv(here("~/public_health_dashboard/raw_data/alcohol_deaths/alcohol_deaths_female_age_group.csv"))
 
 
-alcohol_data_male <- read_csv("~/public_health_dashboard/raw_data/alcohol_deaths/alcohol_deaths_male_age_group.csv")
+alcohol_data_male <- read_csv(here("~/public_health_dashboard/raw_data/alcohol_deaths/alcohol_deaths_male_age_group.csv"))
 
 
 
