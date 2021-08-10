@@ -1,0 +1,50 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+
+```
+
+```{r}
+life_expectancy_data <- read_csv("~/public_health_dashboard/clean_data/life_expectancy_clean.csv")
+```
+
+```{r}
+life_expectancy_data_2 <- life_expectancy_data %>%
+  filter(age == "0 years")
+```
+
+
+```{r}
+life_expectancy_data_3 <- life_expectancy_data_2 %>%
+  mutate(lower_confidence_limit = measurement == "95% Lower Confidence Limit")
+```
+
+
+```{r}
+life_exp_a <- life_expectancy_data_2 %>%
+  group_by(local_authority, date_code) %>%
+  filter(measurement == "95% Lower Confidence Limit")
+
+
+```
+
+
+```{r}
+life_exp_graph <- ggplot(life_expectancy_data_2, aes(x=local_authority, y=value, fill=sex)) + 
+  geom_bar(stat="identity", color="black", width=0.7, position=position_dodge(width=0.9)) +
+  geom_errorbar(aes(ymin=value, ymax=value), width=.2,
+                 position=position_dodge(.9)) +
+  theme(axis.text.x = element_text(angle = 90))+
+  labs(title="Life Expectancy In Scotland By Local Authority Area From 2009 to 2019", x="Local Authority Area", y = "Life Expectancy In Years")
+
+print(life_exp_graph)
+
+
+
+```
+
