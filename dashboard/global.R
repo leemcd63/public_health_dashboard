@@ -34,10 +34,6 @@ life_expectancy_data <- read_csv(here("clean_data/life_expectancy_clean.csv")) %
   rename(gender = sex) %>%
   filter(age == "0 years")
 
-all_life_exp_filtered <- life_expectancy_data %>%
-  filter(measurement == "Count") %>%
-  group_by(local_authority, gender) %>%
-  summarise(value = round(mean(value), 2))
 
 #Launch App
 #shinyApp(ui = ui, server = server)
