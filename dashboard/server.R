@@ -2,20 +2,7 @@
 
 server <- function(input, output, session) {
   
-  # OVERVIEW TAB ---------------------------------------------------------------
-  
-  # overview_data <- reactive({
-  #   [WRANGLE DATA FOR LIFE EXPECTANCY]
-  # })
-  #   
-  #   output$life_expectancy_map({
-  #     [LEAFLET MAP CODE]
-  #   })
-  #   
-  #   output$life_expectancy_plot({
-  #     [GGPLOT FOR LIFE EXPECTANCY]
-  #   })
-  
+
   # DRUGS TAB -------------------------------------------------------------
   
   # DRUG MAP SELECTINPUT CHANGES
@@ -157,21 +144,5 @@ server <- function(input, output, session) {
              margin = list(t = 50, b = 50, l = 50) # to fully display the x and y axis labels
       )
   })
-  
-  
-  # ALCOHOL TAB -------------------------------------------------------------
-  
-  # alcohol_data <- reactive({
-  #   [WRANGLE DATA FOR ALCOHOL]
-  #   
-  # })
-  # output$alcohol_map({
-  #   [LEAFLET MAP CODE]
-  # })
-  # 
-  # output$alcohol_plot({
-  #   [GGPLOT FOR ALCOHOL]
-  # })
-  # 
   
 }

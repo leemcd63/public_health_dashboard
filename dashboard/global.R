@@ -15,9 +15,3 @@ scotland_shape <- st_read(here("clean_data/shape_data/pub_las.shp")) %>%
   st_transform("+proj=longlat +datum=WGS84")
 
 
-
-
-
-
-#Launch App
-#shinyApp(ui = ui, server = server)
