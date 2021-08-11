@@ -55,7 +55,7 @@ plot(scotland_shape)
 
 ```{r}
 # Filter data for leaflet plot
-test <- life_expectancy_data_2 %>%
+life_exp_map <- life_expectancy_data_2 %>%
   filter(measurement == "Count",
          sex == "Male") %>%
   group_by(local_authority) %>%
@@ -64,7 +64,7 @@ test <- life_expectancy_data_2 %>%
   # Convert to shape data from data frame
   st_as_sf()
 
-test
+
 
 life_exp_labels <- sprintf(
     "<strong>%s</strong><br/>%g years",
@@ -81,7 +81,7 @@ pal <- colorBin("Blues", domain = test$value, bins = bins)
 
 
 ```{r}
-leaflet(test, height = 600, width = 500) %>%
+leaflet(life_exp_map, height = 600, width = 500) %>%
   setView(lng = -4.2026, lat = 57.8, zoom = 6, options = list()) %>%
   
   addPolygons(fillColor = ~pal(value),
