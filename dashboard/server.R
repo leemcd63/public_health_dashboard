@@ -428,16 +428,17 @@ server <- function(input, output, session) {
                            y=0.99,
                            xanchor="right",
                            x=1),
-             xaxis = list(title = ""),
-             yaxis = list(title = "Life Expectancy in Years"),
+             xaxis = list(title = "Year"),
+             yaxis = list(title = "Number of Deaths"),
              title = list(text = paste0(
-               'All Areas - Life Expectancy from ', input$all_year_input,
+               'Number of Alcohol Deaths per Year',
                '<br>',
                '<sup>',
-               'Arranged descending by mean value',
+               'Gender: ', input$gender_input, '  -  Age Group: ', input$age_input,
                '</sup>',
                '<br>')),
-             margin = list(t = 50, b = 50, l = 50))
+             margin = list(t = 50, b = 50, l = 50) # to fully display the x and y axis labels
+      )
 
   })
 
