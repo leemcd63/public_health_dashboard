@@ -1,5 +1,5 @@
 
-ui <- dashboardPage(skin = "blue",
+ui <- dashboardPage(skin = "black",
                     
                     # ShinyDashboard tabs
                     dashboardHeader(title = "Health in Scotland - The Drug Crisis"), 
@@ -22,8 +22,9 @@ ui <- dashboardPage(skin = "blue",
                                              column(width = 12, align = "center", 
                                                     selectInput("year_input",
                                                          label = "Year:",
-                                                         choices = sort(unique(alcohol_area$year_of_death)), 
-                                                         selected = 2019,
+                                                         choices = c("All",
+                                                                     sort(unique(alcohol_area$year_of_death))), 
+                                                         selected = "All",
                                                          width = "50%"))),
                                          
                                          

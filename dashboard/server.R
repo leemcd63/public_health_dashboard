@@ -23,17 +23,23 @@ alcohol_deaths_filtered <- reactive({
   alcohol_deaths %>% 
     filter(age_group != "all_ages" & age_group != "average_age") %>%
     filter(gender %in% alcohol_plot_gender_selection,
-           age_group %in% alcohol_plot_age_selection)
+           age_group %in% alcohol_plot_age_selection) %>% 
+    summarise(count = sum(count))
   })
     
 alcohol_area_filtered <- reactive({
   
+  if(input$year_input == "All") {
+    alcohol_map_year_selection <- sort(unique(alcohol_area$year_of_death))
+  } else {
+    alcohol_map_year_selection <- input$year_input
+  }  
   
   alcohol_area %>% 
     select(-...1) %>% 
     filter(area != "All Scotland") %>% 
     group_by(area) %>%
-    filter(year_of_death == input$year_input) %>% 
+    filter(year_of_death %in% alcohol_map_year_selection) %>% 
     summarise(area, count)
 })
 
