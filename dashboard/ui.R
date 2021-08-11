@@ -17,14 +17,23 @@ ui <- dashboardPage(skin = "blue",
                         tabItem(tabName = "drug_deaths"),
                         tabItem(tabName = "alcohol_deaths",
                                 fluidRow(
-                                  column(width = 6, align = "center",
-                                         box(width = 12, solidHeader = TRUE, background = "green",
-                                             selectInput("year_input",
+                                    column(width = 6,
+                                         box(width = NULL, solidHeader = TRUE, background = "green",
+                                             column(width = 12, align = "center", 
+                                                    selectInput("year_input",
                                                          label = "Year:",
                                                          choices = sort(unique(alcohol_area$year_of_death)), 
-                                                         selected = 2019)),
-                                         leafletOutput("alcohol_map", width = "95%", height = 550)
+                                                         selected = 2019,
+                                                         width = "50%"))),
+                                         
+                                         
+                                                
+                                                leafletOutput("alcohol_map", height = 550)
+                                                
+                                                
                                   ),
+                                  
+                                  
                                   
                                   
                                   column(width = 6, align = "center",
@@ -33,13 +42,15 @@ ui <- dashboardPage(skin = "blue",
                                              column(width = 6,
                                                     selectInput("gender_input",
                                                                 label = "Gender:",
-                                                                choices = sort(unique(alcohol_deaths$gender)),
-                                                                selected = "Male")),
+                                                                choices = c("All", 
+                                                                            sort(unique(alcohol_deaths$gender))),
+                                                                selected = "All")),
                                              column(width = 6,
                                                     selectInput("age_input",
                                                                 label = "Age Group:",
-                                                                choices = sort(unique(alcohol_deaths$age_group)),
-                                                                selected = "30-34")))),
+                                                                choices = c("All", 
+                                                                            sort(unique(alcohol_deaths$age_group))),
+                                                                selected = "All")))),
                                          fluidRow(
                                          plotlyOutput("alcohol_plot", width = "95%", height = 550)
                                          )

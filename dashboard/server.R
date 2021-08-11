@@ -5,11 +5,25 @@ server <- function(input, output) {
    # ALCOHOL TAB -------------------------------------------------------------
   
 alcohol_deaths_filtered <- reactive({
-    
+  
+  if(input$gender_input == "All") {
+    alcohol_plot_gender_selection <- sort(unique(alcohol_deaths$gender))
+  } else {
+    alcohol_plot_gender_selection <- input$gender_input
+  }  
+  
+  
+  if(input$age_input == "All") {
+    alcohol_plot_age_selection <- sort(unique(alcohol_deaths$age_group))
+  } else {
+    alcohol_plot_age_selection <- input$age_input
+  }  
+  
+  
   alcohol_deaths %>% 
     filter(age_group != "all_ages" & age_group != "average_age") %>%
-    filter(gender == input$gender_input,
-           age_group == input$age_input)
+    filter(gender %in% alcohol_plot_gender_selection,
+           age_group %in% alcohol_plot_age_selection)
   })
     
 alcohol_area_filtered <- reactive({
@@ -20,7 +34,7 @@ alcohol_area_filtered <- reactive({
     filter(area != "All Scotland") %>% 
     group_by(area) %>%
     filter(year_of_death == input$year_input) %>% 
-    summarise(area, count) 
+    summarise(area, count)
 })
 
     output$alcohol_map <- renderLeaflet({
@@ -58,15 +72,18 @@ alcohol_area_filtered <- reactive({
     
     output$alcohol_plot <- renderPlotly({
       
+      ggplotly(
       alcohol_deaths_filtered() %>%
         ggplot() +
         aes(x = year_of_death, y = count, fill = gender) +
         geom_col() +
         scale_x_continuous(breaks = c(2009:2019)) + 
-        scale_fill_manual(values = "#73c375") +
+        scale_fill_manual(values = c("#bae3b5", "#73c375")) +
         labs(x = "Year", 
              y = "Number of Deaths",
              title = "Number of Alcohol Deaths per Year") +
         theme(legend.position = "none")
+      ) %>% 
+      config(displayModeBar = FALSE)
     })
 }
