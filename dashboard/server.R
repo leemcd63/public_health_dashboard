@@ -33,7 +33,7 @@ server <- function(input, output) {
       addTiles() %>% 
       addPolygons(fillColor = ~pal(value),
                   weight = 0.5,
-                  opacity = 0.5,
+                  opacity = 0.9,
                   color = "black",
                   fillOpacity = 0.5,
                   highlightOptions = highlightOptions(color = "white", weight = 2,

@@ -23,6 +23,7 @@ colnames(life_expectancy_data)[which(names(life_expectancy_data) == "sex")] <- "
 colnames(life_expectancy_data_2)[which(names(life_expectancy_data_2) == "sex")] <-"gender"
 
 scotland_shape <- st_read(here("~/public_health_dashboard/clean_data/shape_data/pub_las.shp")) %>% 
+  st_simplify(dTolerance = 1000) %>%
  st_transform("+proj=longlat +datum=WGS84")
 
 
