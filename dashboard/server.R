@@ -233,12 +233,16 @@ server <- function(input, output, session) {
   #ALCOHOL PLOT OUTPUT
   
   output$alcohol_plot <- renderPlotly({
+    alcohol_deaths_filtered <- alcohol_deaths_filtered()
     
+
+             
     ggplotly(
       alcohol_deaths_filtered() %>%
         ggplot() +
-        aes(x = year_of_death, y = count, fill = gender) +
-        geom_col(aes(text=sprintf("Year: %g<br>Deaths: %g<br>Gender: %s", year_of_death, count, gender))) +
+        aes(x = year_of_death, y = count, fill = gender, 
+            text=sprintf("Year: %g<br>Deaths: %g<br>Gender: %s", year_of_death, count, gender)) +
+        geom_col() +
         scale_x_continuous(breaks = c(2009:2019)) +
         scale_fill_manual(values = c("Female" = "#bae3b5",
                                      "Male" = "#73c375")) +
@@ -265,5 +269,7 @@ server <- function(input, output, session) {
                '<br>')),
              margin = list(t = 50, b = 50, l = 50) # to fully display the x and y axis labels
       )
+             
+
   })
 }
