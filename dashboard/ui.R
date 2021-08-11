@@ -50,7 +50,7 @@ ui <- dashboardPage(skin = "black",
                                                     selectInput("age_input",
                                                                 label = "Age Group:",
                                                                 choices = c("All", 
-                                                                            sort(unique(alcohol_deaths$age_group))),
+                                                                            unique(alcohol_deaths$age_group)),
                                                                 selected = "All")))),
                                          fluidRow(
                                          plotlyOutput("alcohol_plot", width = "95%", height = 550)

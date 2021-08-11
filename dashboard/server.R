@@ -22,6 +22,7 @@ alcohol_deaths_filtered <- reactive({
   
   alcohol_deaths %>% 
     filter(age_group != "all_ages" & age_group != "average_age") %>%
+    #mutate(gender = factor(gender, levels = c("Male", "Female"))) %>%
     filter(gender %in% alcohol_plot_gender_selection,
            age_group %in% alcohol_plot_age_selection) %>%
     group_by(gender, year_of_death) %>%
@@ -44,6 +45,7 @@ alcohol_area_filtered <- reactive({
     summarise(area, count) %>%
     left_join(scotland_shape, by = c("area" = "local_auth")) %>% 
     st_as_sf()
+  
 })
 
     output$alcohol_map <- renderLeaflet({
@@ -80,22 +82,34 @@ alcohol_area_filtered <- reactive({
     })
     
     output$alcohol_plot <- renderPlotly({
-      
       ggplotly(
       alcohol_deaths_filtered() %>%
         ggplot() +
         aes(x = year_of_death, y = count, fill = gender) +
-        geom_col() +
+        geom_col(aes(text=sprintf("Year: %g<br>Deaths: %g<br>Gender: %s", year_of_death, count, gender))) +
         scale_x_continuous(breaks = c(2009:2019)) + 
         scale_fill_manual(values = c("Female" = "#bae3b5", 
                                      "Male" = "#73c375")) +
-        labs(x = "Year", 
-             y = "Number of Deaths",
-             title = "Number of Alcohol Deaths per Year",
-             fill = "Gender") +
        # theme(legend.position = "none") +
-        theme_minimal()
+        theme_minimal(),
+       tooltip = c("text")
       ) %>% 
-      config(displayModeBar = FALSE)
+        config(displayModeBar = FALSE) %>%
+        layout(legend = list(orientation = 'h',
+                             yanchor="bottom",
+                             y=0.99,
+                             xanchor="right",
+                             x=1),
+               xaxis = list(title = "Year"),
+               yaxis = list(title = "Number of Deaths"),
+               title = list(text = paste0(
+                 'Number of Alcohol Deaths per Year',
+                 '<br>',
+                 '<sup>',
+                 'Gender: ', input$gender_input, '  -  Age Group: ', input$age_input,
+                 '</sup>',
+                 '<br>')),
+               margin = list(t = 50, b = 50, l = 50) # to fully display the x and y axis labels
+        )
     })
 }
