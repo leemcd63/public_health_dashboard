@@ -23,8 +23,7 @@ alcohol_deaths_filtered <- reactive({
   alcohol_deaths %>% 
     filter(age_group != "all_ages" & age_group != "average_age") %>%
     filter(gender %in% alcohol_plot_gender_selection,
-           age_group %in% alcohol_plot_age_selection) %>% 
-    summarise(count = sum(count))
+           age_group %in% alcohol_plot_age_selection)
   })
     
 alcohol_area_filtered <- reactive({
@@ -84,11 +83,14 @@ alcohol_area_filtered <- reactive({
         aes(x = year_of_death, y = count, fill = gender) +
         geom_col() +
         scale_x_continuous(breaks = c(2009:2019)) + 
-        scale_fill_manual(values = c("#bae3b5", "#73c375")) +
+        scale_fill_manual(values = c("Female" = "#bae3b5", 
+                                     "Male" = "#73c375")) +
         labs(x = "Year", 
              y = "Number of Deaths",
-             title = "Number of Alcohol Deaths per Year") +
-        theme(legend.position = "none")
+             title = "Number of Alcohol Deaths per Year",
+             fill = "Gender") +
+       # theme(legend.position = "none") +
+        theme_minimal()
       ) %>% 
       config(displayModeBar = FALSE)
     })
