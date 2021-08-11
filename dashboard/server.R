@@ -35,7 +35,7 @@ server <- function(input, output) {
                   weight = 0.5,
                   opacity = 0.9,
                   color = "black",
-                  fillOpacity = 0.5,
+                  fillOpacity = 0.8,
                   highlightOptions = highlightOptions(color = "white", weight = 2,
                                                       bringToFront = TRUE),
                   label = life_exp_labels,
