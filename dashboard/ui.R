@@ -21,14 +21,14 @@ ui <- dashboardPage(skin = "black",
                                             
                                             selectInput("year_input",
                                                         label = "Year Group",
-                                                        choices = c(sort(unique(life_expectancy_data$date_code))),
+                                                        choices = sort(unique(life_expectancy_data_2$date_code)),
                                                         selected = "2017-2019"),
                                             
                                             
                                             radioButtons("gender_input",
                                                          label = "Gender",
                                                          choices = c(sort(unique(life_expectancy_data_2$gender))),
-                                                         selected = "male")
+                                                         selected = "Male")
                                         )
                                         
                                  )

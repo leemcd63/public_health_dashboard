@@ -7,6 +7,7 @@ library(leaflet)
 library(sf)
 library(here)
 library(plotly)
+
 life_expectancy_data <- read_csv("~/public_health_dashboard/clean_data/life_expectancy_clean.csv")
 life_expectancy_data_2 <- life_expectancy_data %>%
   filter(age == "0 years" & date_code == "2017-2019")
