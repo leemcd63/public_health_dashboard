@@ -39,23 +39,25 @@ alcohol_area_filtered <- reactive({
     filter(area != "All Scotland") %>% 
     group_by(area) %>%
     filter(year_of_death %in% alcohol_map_year_selection) %>% 
-    summarise(area, count)
+    summarise(area, count) %>%
+    left_join(scotland_shape, by = c("area" = "local_auth")) %>% 
+    st_as_sf()
 })
 
     output$alcohol_map <- renderLeaflet({
       
+      alcohol_area_filtered <- alcohol_area_filtered()
+      
       bins <- c(0, 25, 50, 100, 150, 200)
-      pal <- colorBin("Greens", domain = alcohol_area$count, bins = bins)
+      pal <- colorBin("Greens", domain = alcohol_area_filtered$count, bins = bins)
       
       alcohol_map_labels <- sprintf(
         "<strong>%s</strong><br/>%g deaths",
-        alcohol_area$area, alcohol_area$count
+        alcohol_area_filtered$area, alcohol_area_filtered$count
       ) %>% 
         lapply(htmltools::HTML)
       
-      alcohol_area_filtered() %>% 
-        left_join(scotland_shape, by = c("area" = "local_auth")) %>% 
-        st_as_sf() %>% 
+      alcohol_area_filtered %>% 
         leaflet() %>% 
         setView(lng = -4.2026, lat = 57.8, zoom = 6, options = list()) %>%
         addProviderTiles(providers$CartoDB.Positron) %>% 
