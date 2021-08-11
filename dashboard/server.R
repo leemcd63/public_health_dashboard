@@ -110,26 +110,52 @@ server <- function(input, output, session) {
                 position = "bottomright")
   })
   
+  # DRUG PLOT DATA
   drug_plot_data <- reactive({
     drug_plot_data <- drug_deaths %>%
       filter(drug_name %in% input$drug_plot_name,
              council_area %in% input$drug_plot_area)
   })
   
-  
+  # DRUG PLOT OUTPUT
   output$drug_plot <- renderPlotly({
-    drug_plot_data() %>%
-      ggplot() +
-      aes(x = year, y = num_deaths) +
-      geom_line() +
-      geom_point() +
-      scale_x_continuous(n.breaks = 10) +
-      scale_y_continuous(n.breaks = 8) +
-      theme_minimal() +
-      labs(x = "\nYear",
-           y = "Number of Deaths\n")
+
+    min_year <- drug_plot_data() %>%
+      slice_min(year) %>%
+      pull(year)
+    
+    max_year <- drug_plot_data() %>%
+      slice_max(year) %>%
+      pull(year)
     
     
+    ggplotly(
+      drug_plot_data() %>%
+        ggplot() +
+        aes(x = year, y = num_deaths) +
+        geom_line(colour = "#605ca8", alpha = 0.75, size = 1.5) +
+        geom_point(aes(text=sprintf("Year: %g<br>Deaths: %g", year, num_deaths)),
+                   colour = "black", size = 2, alpha = 0.9) +
+        scale_x_continuous(breaks = c(min_year:max_year)) +
+        scale_y_continuous(n.breaks = 8) +
+        theme_minimal() +
+        theme(panel.grid.major = element_line(colour = "grey"),
+              plot.background = element_rect(fill = "#ecf0f6"),
+              panel.background = element_rect(fill = "#ecf0f6")),
+        tooltip = c("text")
+    ) %>%
+      config(displayModeBar = FALSE) %>%
+      layout(xaxis = list(title = "Year"),
+             yaxis = list(title = "Number of Deaths"),
+             title = list(text = paste0(
+                                        'Number of deaths in ', input$drug_plot_area, ' from ', min_year, '-', max_year,
+                                        '<br>',
+                                        '<sup>',
+                                        input$drug_plot_name,
+                                        '</sup>',
+                                        '<br>')),
+             margin = list(t = 50, b = 50, l = 50) # to fully display the x and y axis labels
+      )
   })
   
   

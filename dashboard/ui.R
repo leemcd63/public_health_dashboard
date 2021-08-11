@@ -75,7 +75,7 @@ ui <- dashboardPage(skin = "blue",
                         tabItem(tabName = "drug_deaths",
                                 fluidRow(
                                   column(width = 6,
-                                         box(width = NULL, solidHeader = TRUE, background = "blue",
+                                         box(width = NULL, solidHeader = TRUE, background = "purple",
                                              column(width = 6, align = "center",
                                                     selectInput("drug_map_year",
                                                                 label = "Year:",
@@ -100,9 +100,9 @@ ui <- dashboardPage(skin = "blue",
                                          
                                   ),
                                   
-                                  column(width = 6, align = "center",
+                                  column(width = 6,
                                          
-                                         box(width = NULL, solidHeader = TRUE, background = "blue",
+                                         box(width = NULL, solidHeader = TRUE, background = "purple",
                                              column(width = 6, align = "center",
                                                     selectInput("drug_plot_area",
                                                                 label = "Select Area:",
@@ -117,7 +117,7 @@ ui <- dashboardPage(skin = "blue",
                                              
                                          ),
                                          
-                                         plotlyOutput("drug_plot", height = 600)
+                                         plotlyOutput("drug_plot", height = 600, reportTheme = TRUE)
                                          
                                   )
                                   
