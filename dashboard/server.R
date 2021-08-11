@@ -91,14 +91,13 @@ server <- function(input, output, session) {
       ggplot(life_exp_plot_filtered) +
         aes(x = date_code,
             y = value,
-            colour = gender,
             fill = gender) +
         # geom_point() +
-        geom_ribbon(aes(ymin = lower, ymax = upper, alpha = 0.5)) +
-        geom_line() +
-        ylim(70,85) +
-        scale_y_continuous(n.breaks = 15) +
-        scale_x_continuous(n.breaks = 10)
+        geom_ribbon(aes(ymin = lower, ymax = upper, alpha = 0.2)) +
+        geom_line(colour = "black", alpha = 0.5) +
+        scale_y_continuous(breaks = c(70:85), limits = c(70, 85)) +
+        scale_x_continuous(n.breaks = 10) +
+        scale_fill_manual(values=c("aquamarine", "cornflowerblue")) 
     )
   })
 
@@ -114,9 +113,9 @@ server <- function(input, output, session) {
       theme(axis.text.x = element_text(angle = 60))+
       labs(title="Life Expectancy In Scotland By Local Authority Area From 2009 to 2019",
            x="Local Authority Area", y = "Life Expectancy In Years") +
-      coord_cartesian(ylim = c(70,85))
+      coord_cartesian(ylim = c(70,85)) +
+      scale_fill_manual(values=c("aquamarine", "cornflowerblue"))
     )
-=======
   })
 
 }
