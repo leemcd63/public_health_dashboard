@@ -93,3 +93,17 @@ leaflet(test, height = 600, width = 500) %>%
     
 ```
 
+```{r}
+drug_deaths %>%
+  filter(drug_name == "All drug-related deaths",
+         council_area == "Scotland") %>%
+  ggplot() +
+    aes(x = year, y = num_deaths) +
+    geom_line() +
+    geom_point() +
+    scale_x_continuous(n.breaks = 10) +
+    scale_y_continuous(n.breaks = 8)
+    
+    
+```
+

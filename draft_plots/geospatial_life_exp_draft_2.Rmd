@@ -1,0 +1,103 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(sf)
+library(here)
+library(leaflet)
+```
+
+
+
+```{r}
+life_expectancy_data <- read_csv("~/public_health_dashboard/clean_data/life_expectancy_clean.csv")
+```
+
+
+
+```{r}
+life_expectancy_data_2 <- life_expectancy_data %>%
+  filter(age == "0 years" & date_code == "2017-2019")
+
+life_expectancy_data_2[life_expectancy_data_2=="Na h-Eileanan Siar"]<- "Eilean Siar"
+  
+life_expectancy_round <- round(life_expectancy_data_2$value, 2)
+
+life_expectancy_data_2 <- life_expectancy_data_2 %>%
+  mutate(value = life_expectancy_round)
+```
+
+```{r}
+scotland_shape <- st_read(here("~/public_health_dashboard/clean_data/shape_data/pub_las.shp")) %>%
+  st_simplify(dTolerance = 1000) %>%
+  st_transform("+proj=longlat +datum=WGS84")
+  
+```
+
+
+```{r}
+scotland_shape
+```
+
+```{r}
+view(scotland_shape)
+```
+
+```{r}
+plot(scotland_shape)
+```
+
+
+
+```{r}
+# Filter data for leaflet plot
+life_exp_map <- life_expectancy_data_2 %>%
+  filter(measurement == "Count",
+         sex == "Male") %>%
+  group_by(local_authority) %>%
+  # Join with shape data
+  left_join(scotland_shape, by = c("local_authority" = "local_auth")) %>%
+  # Convert to shape data from data frame
+  st_as_sf()
+
+
+
+life_exp_labels <- sprintf(
+    "<strong>%s</strong><br/>%g years",
+    test$local_authority, test$value
+  ) %>% 
+  lapply(htmltools::HTML)
+
+bins <- c(70, 72, 74, 76, 78, 80, 82, 84, 86)
+pal <- colorBin("Blues", domain = test$value, bins = bins)
+
+
+```
+
+
+
+```{r}
+leaflet(life_exp_map, height = 600, width = 500) %>%
+  setView(lng = -4.2026, lat = 57.8, zoom = 6, options = list()) %>%
+  
+  addPolygons(fillColor = ~pal(value),
+              weight = 0.75,
+              opacity = 1,
+              color = "white",
+              fillOpacity = 0.9,
+              highlightOptions = highlightOptions(color = "black", weight = 1,
+                                                  bringToFront = TRUE),
+              label = life_exp_labels,
+  labelOptions = labelOptions(
+    style = list("font-weight" = "normal", padding = "3px 8px"),
+    textsize = "15px",
+    direction = "auto")) %>%
+    addLegend(pal = pal, values = ~density, opacity = 0.7, title = NULL,
+    position = "bottomright")
+
+```
+
