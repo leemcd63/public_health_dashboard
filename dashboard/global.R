@@ -4,9 +4,20 @@ library(shiny)
 library(DT)
 library(shinydashboard)
 library(leaflet)
-library(here)
 library(sf)
+library(here)
 library(plotly)
+library(lubridate)
+
+
+
+# Loading in Life expectancy data
+life_expectancy_data <- read_csv(here("clean_data/life_expectancy_clean.csv")) %>%
+  mutate(local_authority = if_else(local_authority == "Na h-Eileanan Siar", "Eilean Siar", local_authority),
+         value = round(value, 2)) %>%
+  rename(gender = sex) %>%
+  filter(age == "0 years")
+
 
 # Loading in drug data
 drug_deaths <- read_csv(here("clean_data/drug_deaths_clean.csv"))
