@@ -35,7 +35,7 @@ alcohol_area_filtered <- reactive({
   }  
   
   alcohol_area %>% 
-    select(-...1) %>% 
+    select(-1) %>% 
     filter(area != "All Scotland") %>% 
     group_by(area) %>%
     filter(year_of_death %in% alcohol_map_year_selection) %>% 
