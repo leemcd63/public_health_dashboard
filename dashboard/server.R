@@ -11,9 +11,14 @@ server <- function(input, output, session) {
     
     valueBox(
       value = 
-        tags$p(     ,
+        tags$p(life_expectancy_data %>%
+                 filter(date_code == "2017-2019",
+                        gender == "Male",
+                        measurement == "Count") %>%
+                 summarise(mean = round(mean(value), 1)) %>%
+                 pull(mean),
                style = "font-size: 80%;"),
-      subtitle = "Most Popular Game",
+      subtitle = "Average Life Expectancy of a Scottish Man in 2019",
       icon = icon("heart"),
       color = "blue"
     )
@@ -23,9 +28,14 @@ server <- function(input, output, session) {
     
     valueBox(
       value = 
-        tags$p(    ,
+        tags$p(life_expectancy_data %>%
+                 filter(date_code == "2017-2019",
+                        gender == "Female",
+                        measurement == "Count") %>%
+                 summarise(mean = round(mean(value), 1)) %>%
+                 pull(mean),
                style = "font-size: 80%;"),
-      subtitle = "Most Popular Game",
+      subtitle = "Average Life Expectancy of a Scottish Woman in 2019",
       icon = icon("heart"),
       color = "blue"
     )
@@ -35,9 +45,15 @@ server <- function(input, output, session) {
     
     valueBox(
       value = 
-        tags$p(    ,
+        tags$p(life_expectancy_data %>%
+                 filter(date_code == "2017-2019",
+                        measurement == "Count") %>%
+                 group_by(local_authority) %>%
+                 summarise(mean = mean(value)) %>%
+                 slice_min(mean) %>%
+                 pull(local_authority),
                style = "font-size: 80%;"),
-      subtitle = "Most Popular Game",
+      subtitle = "Council Area with the Lowest Life Expectancy in 2019",
       icon = icon("heart"),
       color = "blue"
     )
@@ -290,21 +306,31 @@ server <- function(input, output, session) {
                  text = sprintf("Area: %s<br>Life Expectancy: %g<br>Gender: %s", local_authority, value, gender)) +
       geom_bar(stat = "identity", color = "black", width = 0.5, position = position_dodge(width=0.7)) +
       coord_cartesian(ylim = c(70,85)) +
-      scale_fill_manual(values=c("aquamarine", "cornflowerblue")) +
-      theme_minimal()+
-      theme(axis.text.x = element_text(angle = 60),
-            panel.grid.major = element_line(colour = "grey"),
-            xaxis = list(title = "Year"),
-            yaxis = list(title = "Number of Deaths"),
-            title = list(text = paste0(
-              'Number of Alcohol Deaths per Year',
-              '<br>',
-              '<sup>',
-              'Gender: ', input$gender_input, '  -  Age Group: ', input$age_input,
-              '</sup>',
-              '<br>')),
-            margin = list(t = 50, b = 50, l = 50) # to fully display the x and y axis labels
-      ))
+        scale_fill_manual(values=c("aquamarine", "cornflowerblue")) +
+        theme_minimal()+
+        theme(axis.text.x = element_text(angle = 60),
+              panel.grid.major = element_line(colour = "grey"),
+              plot.background = element_rect(fill = "#ecf0f6"),
+              panel.background = element_rect(fill = "#ecf0f6")),
+      tooltip = c("text")
+    ) %>%
+      config(displayModeBar = FALSE) %>%
+      layout(legend = list(orientation = 'h',
+                           yanchor="bottom",
+                           y=0.99,
+                           xanchor="right",
+                           x=1),
+             xaxis = list(title = ""),
+             yaxis = list(title = "Life Expectancy in Years"),
+             title = list(text = paste0(
+               'All Areas - Life Expectancy from ', input$all_year_input,
+               '<br>',
+               '<sup>',
+               'Value shown with 95% Confidence Intervals',
+               '</sup>',
+               '<br>')),
+             margin = list(t = 50, b = 50, l = 50)
+      )
       
       
       })
