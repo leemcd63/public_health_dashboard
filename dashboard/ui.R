@@ -2,7 +2,7 @@
 ui <- dashboardPage(skin = "black",
 
                     # ShinyDashboard tabs
-                    dashboardHeader(title = "Health in Scotland - The Drug Crisis"),
+                    dashboardHeader(title = "Health in Scotland"),
                     dashboardSidebar(
                       sidebarMenu(
                         menuItem("Scotland Health Overview", tabName = "overview"),
@@ -73,7 +73,8 @@ ui <- dashboardPage(skin = "black",
 
                                 )),
 
-
+                        # ALCOHOL PANEL -------------------------------------------------------------
+                        
                                 tabItem(tabName = "alcohol_deaths",
                                 fluidRow(
                                     column(width = 6,
@@ -88,7 +89,7 @@ ui <- dashboardPage(skin = "black",
 
 
 
-                                                leafletOutput("alcohol_map", height = 550)
+                                                leafletOutput("alcohol_map", height = 600)
 
 
                                   ),
@@ -103,7 +104,7 @@ ui <- dashboardPage(skin = "black",
                                                     selectInput("gender_input",
                                                                 label = "Gender:",
                                                                 choices = c("All",
-                                                                            sort(unique(alcohol_deaths$gender))),
+                                                                            unique(alcohol_deaths$gender)),
                                                                 selected = "All")),
                                              column(width = 6,
                                                     selectInput("age_input",
@@ -112,7 +113,7 @@ ui <- dashboardPage(skin = "black",
                                                                             unique(alcohol_deaths$age_group)),
                                                                 selected = "All")))),
                                          fluidRow(
-                                         plotlyOutput("alcohol_plot", width = "95%", height = 550)
+                                         plotlyOutput("alcohol_plot",  height = 600)
                                          )
 
 
