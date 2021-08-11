@@ -1,5 +1,4 @@
 
-
 ui <- dashboardPage(skin = "blue",
                     
                     # ShinyDashboard tabs
@@ -16,42 +15,37 @@ ui <- dashboardPage(skin = "blue",
                         # OVERVIEW PANEL ---------------------------------------
                         tabItem(tabName = "overview"),
                         tabItem(tabName = "drug_deaths"),
-                              tabItem(tabName = "alcohol_deaths",
+                        tabItem(tabName = "alcohol_deaths",
                                 fluidRow(
-                                  column(width = 2, align = "center",
-                                         box(width = NULL, solidHeader = TRUE, background = "blue",
-                                             selectInput("gender_input",
-                                                         label = "Gender:",
-                                                         choices = c("All", 
-                                                                     sort(unique(alcohol_deaths$gender))),
-                                                         selected = "All"),
-                                             
-                                             selectInput("age_input",
-                                                         label = "Age Group:",
-                                                         choices = c("All", 
-                                                                     sort(unique(alcohol_deaths$age_group))),
-                                                         selected = "All"),
-                                             
+                                  column(width = 6, align = "center",
+                                         box(width = 12, solidHeader = TRUE, background = "green",
                                              selectInput("year_input",
                                                          label = "Year:",
-                                                         choices = c("All",
-                                                                     sort(unique(alcohol_area$year_of_death))))
-                                             
+                                                         choices = sort(unique(alcohol_area$year_of_death)), 
+                                                         selected = 2019)),
+                                         leafletOutput("alcohol_map", width = "95%", height = 550)
+                                  ),
+                                  
+                                  
+                                  column(width = 6, align = "center",
+                                         fluidRow(
+                                         box(width = 12, solidHeader = TRUE, background = "green",
+                                             column(width = 6,
+                                                    selectInput("gender_input",
+                                                                label = "Gender:",
+                                                                choices = sort(unique(alcohol_deaths$gender)),
+                                                                selected = "Male")),
+                                             column(width = 6,
+                                                    selectInput("age_input",
+                                                                label = "Age Group:",
+                                                                choices = sort(unique(alcohol_deaths$age_group)),
+                                                                selected = "30-34")))),
+                                         fluidRow(
+                                         plotlyOutput("alcohol_plot", width = "95%", height = 550)
                                          )
+                                         
+                                         
                                   )
-                                ),
-                                
-                                column(width = 10,
-                                       tabsetPanel(
-                                         
-                                         tabPanel("Map",
-                                                  leafletOutput("alcohol_map")
-                                         ),
-                                         
-                                         tabPanel("Graph",
-                                                  plotOutput("alcohol_plot", height = 500) 
-                                         )
-                                       )
                                 )
                         )
                       )

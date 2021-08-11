@@ -25,12 +25,10 @@ alcohol_area_filtered <- reactive({
 
     output$alcohol_map <- renderLeaflet({
       
-      scotland_shape <- st_transform(scotland_shape, "+proj=longlat +datum=WGS84")
-      
       bins <- c(0, 25, 50, 100, 150, 200)
       pal <- colorBin("Greens", domain = alcohol_area$count, bins = bins)
       
-      death_labels <- sprintf(
+      alcohol_map_labels <- sprintf(
         "<strong>%s</strong><br/>%g deaths",
         alcohol_area$area, alcohol_area$count
       ) %>% 
@@ -40,6 +38,8 @@ alcohol_area_filtered <- reactive({
         left_join(scotland_shape, by = c("area" = "local_auth")) %>% 
         st_as_sf() %>% 
         leaflet() %>% 
+        setView(lng = -4.2026, lat = 57.8, zoom = 6, options = list()) %>%
+        addProviderTiles(providers$CartoDB.Positron) %>% 
         addPolygons(fillColor = ~pal(count),
                     weight = 0.5,
                     opacity = 0.5,
@@ -47,7 +47,7 @@ alcohol_area_filtered <- reactive({
                     fillOpacity = 0.5,
                     highlightOptions = highlightOptions(color = "white", weight = 2,
                                                         bringToFront = TRUE),
-                    label = death_labels,
+                    label = alcohol_map_labels,
                     labelOptions = labelOptions(
                       style = list("font-weight" = "normal", padding = "3px 8px"),
                       textsize = "15px",
@@ -56,12 +56,17 @@ alcohol_area_filtered <- reactive({
                   position = "bottomright")
     })
     
-    output$alcohol_plot <- renderPlot({
+    output$alcohol_plot <- renderPlotly({
       
-      alcohol_deaths_filtered() %>% 
+      alcohol_deaths_filtered() %>%
         ggplot() +
         aes(x = year_of_death, y = count, fill = gender) +
         geom_col() +
-        scale_x_continuous(breaks = c(2009:2019))
+        scale_x_continuous(breaks = c(2009:2019)) + 
+        scale_fill_manual(values = "#73c375") +
+        labs(x = "Year", 
+             y = "Number of Deaths",
+             title = "Number of Alcohol Deaths per Year") +
+        theme(legend.position = "none")
     })
 }
