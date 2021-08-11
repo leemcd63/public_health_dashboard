@@ -91,7 +91,10 @@ alcohol_area_filtered <- reactive({
         scale_fill_manual(values = c("Female" = "#bae3b5", 
                                      "Male" = "#73c375")) +
        # theme(legend.position = "none") +
-        theme_minimal(),
+        theme_minimal()+
+        theme(panel.grid.major = element_line(colour = "grey"),
+              plot.background = element_rect(fill = "#ecf0f6"),
+              panel.background = element_rect(fill = "#ecf0f6")),
        tooltip = c("text")
       ) %>% 
         config(displayModeBar = FALSE) %>%
