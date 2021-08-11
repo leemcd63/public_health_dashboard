@@ -60,7 +60,8 @@ server <- function(input, output) {
                     position=position_dodge(.9)) +
       theme(axis.text.x = element_text(angle = 90))+
       labs(title="Life Expectancy In Scotland By Local Authority Area From 2009 to 2019", 
-           x="Local Authority Area", y = "Life Expectancy In Years")
+           x="Local Authority Area", y = "Life Expectancy In Years") +
+      scale_fill_manual(values=c("aquamarine", "cornflowerblue"))
   })
   
 }
