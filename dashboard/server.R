@@ -23,7 +23,9 @@ alcohol_deaths_filtered <- reactive({
   alcohol_deaths %>% 
     filter(age_group != "all_ages" & age_group != "average_age") %>%
     filter(gender %in% alcohol_plot_gender_selection,
-           age_group %in% alcohol_plot_age_selection)
+           age_group %in% alcohol_plot_age_selection) %>%
+    group_by(gender, year_of_death) %>%
+    summarise(count = sum(count))
   })
     
 alcohol_area_filtered <- reactive({
