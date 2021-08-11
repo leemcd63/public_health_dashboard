@@ -1,25 +1,26 @@
 
 ui <- dashboardPage(skin = "black",
-
+                    
                     # ShinyDashboard tabs
                     dashboardHeader(title = "Health in Scotland"),
                     dashboardSidebar(
                       sidebarMenu(
                         menuItem("Scotland Health Overview", tabName = "overview"),
                         menuItem("Drug Deaths", tabName = "drug_deaths"),
-                        menuItem("Alcohol Deaths", tabName = "alcohol_deaths")
+                        menuItem("Alcohol Deaths", tabName = "alcohol_deaths"),
+                        menuItem("SIMD", tabName = "simd")
                       )
                     ),
-
+                    
                     dashboardBody(
                       tabItems(
                         # OVERVIEW PANEL ---------------------------------------
-
+                        
                         tabItem(tabName = "overview",
-
+                                
                         ),
-
-
+                        
+                        
                         # DRUGS PANEL -------------------------------------------------------------
                         tabItem(tabName = "drug_deaths",
                                 fluidRow(
@@ -38,19 +39,19 @@ ui <- dashboardPage(skin = "black",
                                                                 choices = sort(unique(drug_deaths$drug_name)),
                                                                 selected = "All drug-related deaths")
                                              )
-
+                                             
                                          ),
-
-
-
-
+                                         
+                                         
+                                         
+                                         
                                          leafletOutput("drug_map", height = 600)
-
-
+                                         
+                                         
                                   ),
-
+                                  
                                   column(width = 6,
-
+                                         
                                          box(width = NULL, solidHeader = TRUE, background = "purple",
                                              column(width = 6, align = "center",
                                                     selectInput("drug_plot_area",
@@ -63,63 +64,69 @@ ui <- dashboardPage(skin = "black",
                                                                 choices = sort(unique(drug_deaths$drug_name)),
                                                                 selected = "All drug-related deaths")
                                              )
-
+                                             
                                          ),
-
-                                         plotlyOutput("drug_plot", height = 600, reportTheme = TRUE)
-
+                                         
+                                         plotlyOutput("drug_plot", height = 600)
+                                         
                                   )
-
-
+                                  
+                                  
                                 )),
-
+                        
                         # ALCOHOL PANEL -------------------------------------------------------------
                         
-                                tabItem(tabName = "alcohol_deaths",
+                        tabItem(tabName = "alcohol_deaths",
                                 fluidRow(
-                                    column(width = 6,
+                                  column(width = 6,
                                          box(width = NULL, solidHeader = TRUE, background = "green",
                                              column(width = 12, align = "center",
                                                     selectInput("year_input",
-                                                         label = "Year:",
-                                                         choices = c("All",
-                                                                     sort(unique(alcohol_area$year_of_death))),
-                                                         selected = "All",
-                                                         width = "50%"))),
-
-
-
-                                                leafletOutput("alcohol_map", height = 600)
-
-
+                                                                label = "Year:",
+                                                                choices = c("All",
+                                                                            sort(unique(alcohol_area$year_of_death))),
+                                                                selected = "All",
+                                                                width = "50%"))),
+                                         
+                                         
+                                         
+                                         leafletOutput("alcohol_map", height = 600)
+                                         
+                                         
                                   ),
-
-
-
-
+                                  
+                                  
+                                  
+                                  
                                   column(width = 6, align = "center",
                                          fluidRow(
-                                         box(width = 12, solidHeader = TRUE, background = "green",
-                                             column(width = 6,
-                                                    selectInput("gender_input",
-                                                                label = "Gender:",
-                                                                choices = c("All",
-                                                                            unique(alcohol_deaths$gender)),
-                                                                selected = "All")),
-                                             column(width = 6,
-                                                    selectInput("age_input",
-                                                                label = "Age Group:",
-                                                                choices = c("All",
-                                                                            unique(alcohol_deaths$age_group)),
-                                                                selected = "All")))),
+                                           box(width = 12, solidHeader = TRUE, background = "green",
+                                               column(width = 6,
+                                                      selectInput("gender_input",
+                                                                  label = "Gender:",
+                                                                  choices = c("All",
+                                                                              unique(alcohol_deaths$gender)),
+                                                                  selected = "All")),
+                                               column(width = 6,
+                                                      selectInput("age_input",
+                                                                  label = "Age Group:",
+                                                                  choices = c("All",
+                                                                              unique(alcohol_deaths$age_group)),
+                                                                  selected = "All")))),
                                          fluidRow(
-                                         plotlyOutput("alcohol_plot",  height = 600)
+                                           plotlyOutput("alcohol_plot",  height = 600)
                                          )
-
-
+                                         
+                                         
                                   )
-
+                                  
                                 )
+                        ),
+                        
+                        tabItem(tabName = "simd",
+                                
+                                plotlyOutput("simd_plot", height = 600)
+                                
                         )
                       )
                     )
