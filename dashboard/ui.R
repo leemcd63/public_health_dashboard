@@ -6,7 +6,7 @@ ui <- dashboardPage(skin = "black",
                     dashboardHeader(title = "Health in Scotland - The Drug Crisis"), 
                     dashboardSidebar(
                       sidebarMenu(
-                        menuItem("Scotland Health Overview", tabName = "overview"),
+                        menuItem("Scotland Health Overview", tabName = "life_expectancy"),
                         menuItem("Drug Deaths", tabName = "drug_deaths"),
                         menuItem("Alcohol Deaths", tabName = "alcohol_deaths")
                       )
@@ -41,14 +41,13 @@ ui <- dashboardPage(skin = "black",
                                  tabsetPanel(
                                    
                                    tabPanel("Map",
-                                            leafletOutput("life_expectancy_map")),
+                                            leafletOutput("life_exp_map")),
                                    
                                    tabPanel("Graph",
                                             plotlyOutput("life_expectancy_plot", height = 600))
                                  )
                           )
                         )
-                      ),
-                      tabItem(tabName = "drug_deaths")
+                      )
                     )
 ))

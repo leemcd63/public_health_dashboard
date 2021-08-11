@@ -7,8 +7,8 @@ server <- function(input, output) {
 life_exp_filtered <- reactive({
   
   life_expectancy_data_2 %>% 
-    filter(gender == input$gender_input) %>% 
-    left_join(scotland_shape, by = c("area" = "local_auth")) %>%
+    filter(gender %in% input$gender_input) %>% 
+    left_join(scotland_shape, by = c("local_authority" = "local_auth")) %>%
     st_as_sf() 
 })
 
@@ -18,10 +18,11 @@ life_exp_filtered <- reactive({
         life_exp_filtered <- life_exp_filtered()
         
         bins <- c(70, 72, 74, 76, 78, 80, 82, 84, 86)
-        pal <- colorBin("Blues", domain = test$value, bins = bins)
+        pal <- colorBin("Blues", domain = life_exp_filtered$value, bins = bins)
+        
         life_exp_labels <- sprintf(
           "<strong>%s</strong><br/>%g years",
-          life_expectancy_data_2$local_authority, life_expectancy_data_2$value
+          life_exp_filtered$local_authority, life_exp_filtered$value
         ) %>% 
           lapply(htmltools::HTML)
         
@@ -50,7 +51,7 @@ life_exp_filtered <- reactive({
 
     
     output$life_expectancy_plot <- renderPlotly({
-        ggplot(life_expectancy_data_2, aes(x=local_authority, y=value, fill=sex)) + 
+        ggplot(life_expectancy_data_2, aes(x=local_authority, y=value, fill=gender)) + 
           geom_bar(stat="identity", color="black", width=0.7, position=position_dodge(width=0.9)) +
           geom_errorbar(aes(ymin=value, ymax=value), width=.2,
                         position=position_dodge(.9)) +
