@@ -15,39 +15,40 @@ ui <- dashboardPage(skin = "black",
                       tabItems(
                         # OVERVIEW PANEL ---------------------------------------
                         tabItem(tabName = "life_expectancy",
-                        fluidRow(align = "center",
-                                 column(width = 6, align= "center", background = "blue",
-                                        box(width = NULL, solidHeader = TRUE, background = "green",            
-                                            
+                        fluidRow(
+                                 column(width = 6,
+                                        box(width = NULL, solidHeader = TRUE, background = "blue",            
+                                            column(width = 6, align = "center",
                                             selectInput("year_input",
                                                         label = "Year Group",
                                                         choices = sort(unique(life_expectancy_data_2$date_code)),
-                                                        selected = "2017-2019"),
+                                                        selected = "2017-2019")
+                                            ),
                                             
-                                            
+                                            column(width = 6, align = "center",
                                             radioButtons("gender_input",
                                                          label = "Gender",
                                                          choices = c(sort(unique(life_expectancy_data_2$gender))),
                                                          selected = "Male")
-                                        )
-                                        
-                                 )
-                        ),
+                                            )
+                                        ),
+                                        leafletOutput("life_exp_map", height = 600)
+                                 ),
+                  
+                      
+                      
                         
                         
-                        
-                        fluidRow(
-                          column(width = 6,
-                                 tabsetPanel(
+                        column(width = 6,
                                    
-                                   tabPanel("Map",
-                                            leafletOutput("life_exp_map")),
+                          plotlyOutput("life_expectancy_plot", height = 600)
                                    
-                                   tabPanel("Graph",
-                                            plotlyOutput("life_expectancy_plot", height = 600))
-                                 )
+                        )
+                                   
+                                 
                           )
                         )
                       )
                     )
-))
+)
+

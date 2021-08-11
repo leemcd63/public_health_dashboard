@@ -10,7 +10,8 @@ library(plotly)
 
 life_expectancy_data <- read_csv("~/public_health_dashboard/clean_data/life_expectancy_clean.csv")
 life_expectancy_data_2 <- life_expectancy_data %>%
-  filter(age == "0 years" & date_code == "2017-2019")
+  filter(age == "0 years") %>%
+  filter(measurement == "Count")
 
 
 life_expectancy_data_2[life_expectancy_data_2=="Na h-Eileanan Siar"]<- "Eilean Siar"

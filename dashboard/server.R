@@ -8,11 +8,13 @@ server <- function(input, output) {
     
     life_expectancy_data_2 %>% 
       filter(gender %in% input$gender_input,
-             measurement == "Count") %>% 
+             measurement == "Count",
+             date_code == input$year_input) %>% 
       left_join(scotland_shape, by = c("local_authority" = "local_auth")) %>%
       st_as_sf() 
   })
   
+
   
   output$life_exp_map <- renderLeaflet({
     
@@ -30,7 +32,7 @@ server <- function(input, output) {
     life_exp_filtered %>%
       leaflet() %>% 
       setView(lng = -4.2026, lat = 57.8, zoom = 5.5, options = list()) %>%
-      addTiles() %>% 
+      addProviderTiles(providers$CartoDB.Positron)%>% 
       addPolygons(fillColor = ~pal(value),
                   weight = 0.5,
                   opacity = 0.9,
