@@ -1,6 +1,159 @@
 # server ------------------------------------------------------------------
 
+
 server <- function(input, output, session) {
+  
+  # OVERVIEW PANEL --------------------
+  output$value <- renderText({ input$about })
+  
+  
+  output$avg_m <- renderValueBox({
+    
+    valueBox(
+      value = 
+        tags$p(life_expectancy_data %>%
+                 filter(date_code == "2017-2019",
+                        gender == "Male",
+                        measurement == "Count") %>%
+                 summarise(mean = round(mean(value), 1)) %>%
+                 pull(mean),
+               style = "font-size: 80%;"),
+      subtitle = "Average Life Expectancy of a Scottish Man in 2019",
+      icon = icon("heart"),
+      color = "blue"
+    )
+  })
+  
+  output$avg_f <- renderValueBox({
+    
+    valueBox(
+      value = 
+        tags$p(life_expectancy_data %>%
+                 filter(date_code == "2017-2019",
+                        gender == "Female",
+                        measurement == "Count") %>%
+                 summarise(mean = round(mean(value), 1)) %>%
+                 pull(mean),
+               style = "font-size: 80%;"),
+      subtitle = "Average Life Expectancy of a Scottish Woman in 2019",
+      icon = icon("heart"),
+      color = "blue"
+    )
+  })
+  
+  output$life_exp_area <- renderValueBox({
+    
+    valueBox(
+      value = 
+        tags$p(life_expectancy_data %>%
+                 filter(date_code == "2017-2019",
+                        measurement == "Count") %>%
+                 group_by(local_authority) %>%
+                 summarise(mean = mean(value)) %>%
+                 slice_min(mean) %>%
+                 pull(local_authority),
+               style = "font-size: 80%;"),
+      subtitle = "Council Area with the Lowest Life Expectancy in 2019",
+      icon = icon("heart"),
+      color = "blue"
+    )
+  })
+  
+  output$most_drug_death <- renderValueBox({
+    
+    valueBox(
+      value = 
+        tags$p(drug_deaths %>% 
+                 filter(drug_name != "All drug-related deaths" & year == 2019) %>% 
+                 slice_max(num_deaths) %>% 
+                 pull(drug_name),
+               style = "font-size: 80%;"),
+      subtitle = "Most Lethal Drug 2019",
+      icon = icon("pills"),
+      color = "purple"
+    )
+  })
+  
+  output$total_drug_death <- renderValueBox({
+    
+    valueBox(
+      value = 
+        tags$p(drug_deaths %>% 
+                 filter(council_area == "Scotland" &
+                          drug_name == "All drug-related deaths" &
+                          year == 2019) %>%
+                 pull(num_deaths),
+               style = "font-size: 80%;"),
+      subtitle = "Drug Deaths 2019",
+      icon = icon("pills"),
+      color = "purple"
+    )
+  })
+  
+  output$worst_drug_area <- renderValueBox({
+    
+    valueBox(
+      value = 
+        tags$p(drug_deaths %>% 
+                 filter(drug_name == "All drug-related deaths" &
+                          year == 2019 &
+                          council_area != "Scotland") %>%
+                 slice_max(1) %>% 
+                 pull(council_area),
+               style = "font-size: 80%;"),
+      subtitle = "Council Area with Most Drug Deaths 2019",
+      icon = icon("home"),
+      color = "purple"
+    )
+  })
+  
+  output$alcohol_age <- renderValueBox({
+    
+    valueBox(
+      value = 
+        tags$p(alcohol_deaths %>% 
+                 drop_na(age_group) %>% 
+                 filter(year_of_death == 2019) %>% 
+                 slice_max(count, n = 1, with_ties = FALSE) %>% 
+                 pull(age_group),
+               style = "font-size: 80%;"),
+      subtitle = "Age of Most Alcohol-related Mortality in 2019",
+      icon = icon("wine-glass"),
+      color = "green"
+    )
+  })
+  
+  output$total_alc_death <- renderValueBox({
+    
+    valueBox(
+      value = 
+        tags$p(alcohol_deaths %>% 
+                 drop_na(age_group) %>% 
+                 filter(year_of_death == 2019) %>% 
+                 summarise(count = sum(count)) %>% 
+                 pull(count),
+               style = "font-size: 80%;"),
+      subtitle = "Total Alcohol Deaths 2019",
+      icon = icon("wine-glass"),
+      color = "green"
+    )
+  })
+  
+  output$worst_alcohol_area <- renderValueBox({
+
+    valueBox(
+      value = 
+        tags$p(alcohol_area %>% 
+                 filter(area != "All Scotland" &
+                          year_of_death == 2009) %>% 
+                 slice_max(count, n = 1) %>% 
+                 pull(count),
+               style = "font-size: 80%;"),
+      subtitle = "Area with Most Alcohol Deaths 2019",
+      icon = icon("home"),
+      color = "green"
+    )
+  })
 
   # LIFE EXPECTANCY TAB ---------------------------------------------------------------
 
@@ -153,21 +306,31 @@ server <- function(input, output, session) {
                  text = sprintf("Area: %s<br>Life Expectancy: %g<br>Gender: %s", local_authority, value, gender)) +
       geom_bar(stat = "identity", color = "black", width = 0.5, position = position_dodge(width=0.7)) +
       coord_cartesian(ylim = c(70,85)) +
-      scale_fill_manual(values=c("aquamarine", "cornflowerblue")) +
-      theme_minimal()+
-      theme(axis.text.x = element_text(angle = 60),
-            panel.grid.major = element_line(colour = "grey"),
-            xaxis = list(title = "Year"),
-            yaxis = list(title = "Number of Deaths"),
-            title = list(text = paste0(
-              'Number of Alcohol Deaths per Year',
-              '<br>',
-              '<sup>',
-              'Gender: ', input$gender_input, '  -  Age Group: ', input$age_input,
-              '</sup>',
-              '<br>')),
-            margin = list(t = 50, b = 50, l = 50) # to fully display the x and y axis labels
-      ))
+        scale_fill_manual(values=c("aquamarine", "cornflowerblue")) +
+        theme_minimal()+
+        theme(axis.text.x = element_text(angle = 60),
+              panel.grid.major = element_line(colour = "grey"),
+              plot.background = element_rect(fill = "#ecf0f6"),
+              panel.background = element_rect(fill = "#ecf0f6")),
+      tooltip = c("text")
+    ) %>%
+      config(displayModeBar = FALSE) %>%
+      layout(legend = list(orientation = 'h',
+                           yanchor="bottom",
+                           y=0.99,
+                           xanchor="right",
+                           x=1),
+             xaxis = list(title = ""),
+             yaxis = list(title = "Life Expectancy in Years"),
+             title = list(text = paste0(
+               'All Areas - Life Expectancy from ', input$all_year_input,
+               '<br>',
+               '<sup>',
+               'Value shown with 95% Confidence Intervals',
+               '</sup>',
+               '<br>')),
+             margin = list(t = 50, b = 50, l = 50)
+      )
       
       
       })
@@ -441,5 +604,6 @@ server <- function(input, output, session) {
       )
 
   })
+
 
 }
