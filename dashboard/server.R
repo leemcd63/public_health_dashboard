@@ -98,7 +98,7 @@ server <- function(input, output, session) {
                  filter(drug_name == "All drug-related deaths" &
                           year == 2019 &
                           council_area != "Scotland") %>%
-                 slice_max(1) %>% 
+                 slice_max(num_deaths) %>% 
                  pull(council_area),
                style = "font-size: 80%;"),
       subtitle = "Council Area with Most Drug Deaths 2019",
