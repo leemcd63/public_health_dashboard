@@ -36,19 +36,16 @@ ui <- dashboardPage(skin = "black",
                                              tags$a(tags$b(href="https://statistics.gov.scot/home", "Scottish Government Statistics Website")),
                                              " and the ", 
                                              tags$a(tags$b(href="https://www.nrscotland.gov.uk", "National Records of Scotland Website. ")),
-                                             br(), br(), br(), br(), 
-                                             "This dashboard has been built using ",
-                                             tags$a(tags$b(href="https://shiny.rstudio.com", "Shiny for RStudio ")),
-                                             "by ", tags$b("Tom Davie, Melanie Jayasinghe and Lee McDonald of CodeClan Cohort DE9"),
-                                            style = "font-family: 'arial'; font-size: 12pt;"),
-                                    ),
+                                             br(),
+                                             style = "font-family: 'arial'; font-size: 12pt;")
+                                    )
                                   ),
                                   fluidRow(
                                     column(width = 4, offset = 4, align = "center",
                                            br(),
                                            box(width = NULL, solidHeader = TRUE, status = "warning",
                                                title = tags$b("Health in Scotland 2019", style = "font-size: 30px"),
-                                               tags$b("Key Performance Indicators", style = "font-size: 20px"),
+                                               tags$b("Key Performance Indicators", style = "font-size: 20px")
                                            )
                                     )
                                   ),
@@ -68,12 +65,29 @@ ui <- dashboardPage(skin = "black",
                                     valueBoxOutput("alcohol_age"),
                                     valueBoxOutput("total_alc_death"),
                                     valueBoxOutput("worst_alcohol_area")
-                                  ))
-                                
+                                  ),
+                                  
+                                  fluidRow(
+                                    column(width = 10, offset = 1, align = "center",
+                                           p(br(), 
+                                             "This dashboard has been built using ",
+                                             tags$a(tags$b(href="https://shiny.rstudio.com", "Shiny for RStudio ")),
+                                             "by ", tags$b("Tom Davie, Melanie Jayasinghe and Lee McDonald of CodeClan Cohort DE9"))
+                                    )
+                                    
+                                  )
+                                  
+                                )
                         ),
-                        
                         # LIFE EXPECTANCY PANEL ---------------------------------------
                         tabItem(tabName = "life_expectancy",
+                                
+                                  fluidRow(
+                                    column(width = 12,
+                                           tags$b("Life Expectancy in Scotland", style = "font-size: 30px"),
+                                           
+                                    )
+                                  ),
                                 tabsetPanel(
                                   tabPanel("By Area",
                                            fluidRow(
@@ -137,7 +151,7 @@ ui <- dashboardPage(skin = "black",
                                   ),
                                   
                                   
-                                  tabPanel("All Areas",
+                                  tabPanel("Overview",
                                            
                                            fluidRow(
                                              column(width = 12, offset = 4,
@@ -165,6 +179,12 @@ ui <- dashboardPage(skin = "black",
                         
                         # DRUGS PANEL -------------------------------------------------------------
                         tabItem(tabName = "drug_deaths",
+                                fluidRow(
+                                  column(width = 10,
+                                         tags$b("Drug-related Deaths in Scotland", style = "font-size: 30px"),
+                                         br(), br(), 
+                                  )
+                                ),
                                 fluidRow(
                                   column(width = 6,
                                          box(width = NULL, solidHeader = TRUE, background = "purple",
@@ -219,6 +239,12 @@ ui <- dashboardPage(skin = "black",
                         # ALCOHOL PANEL -------------------------------------------------------------
                         
                         tabItem(tabName = "alcohol_deaths",
+                                fluidRow(
+                                  column(width = 10,
+                                         tags$b("Alcohol-specific Deaths in Scotland", style = "font-size: 30px"),
+                                         br(), br(), 
+                                  )
+                                ),
                                 fluidRow(
                                   column(width = 6,
                                          box(width = NULL, solidHeader = TRUE, background = "green",
