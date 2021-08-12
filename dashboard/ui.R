@@ -21,7 +21,7 @@ ui <- dashboardPage(skin = "black",
                                 fluidPage(
                                   fluidRow(
                                     column(width = 10, offset = 1, align = "center",
-                                           tags$b("Scotland Health Overview", style = "font-size: 40px"),
+                                           tags$b("Health in Scotland Overview", style = "font-size: 40px"),
                                            br(), br(),
                                            p("Over recent years, Scotland has seen a continuous increase in deaths attributed 
                                              to substance abuse.", 
@@ -36,7 +36,7 @@ ui <- dashboardPage(skin = "black",
                                              tags$a(tags$b(href="https://statistics.gov.scot/home", "Scottish Government Statistics Website")),
                                              " and the ", 
                                              tags$a(tags$b(href="https://www.nrscotland.gov.uk", "National Records of Scotland Website. ")),
-                                             br(),
+                                             br(), br(),
                                              style = "font-family: 'arial'; font-size: 12pt;")
                                     )
                                   ),
@@ -69,7 +69,7 @@ ui <- dashboardPage(skin = "black",
                                   
                                   fluidRow(
                                     column(width = 10, offset = 1, align = "center",
-                                           p(br(), 
+                                           p(br(), br(),
                                              "This dashboard has been built using ",
                                              tags$a(tags$b(href="https://shiny.rstudio.com", "Shiny for RStudio ")),
                                              "by ", tags$b("Tom Davie, Melanie Jayasinghe and Lee McDonald of CodeClan Cohort DE9"))
