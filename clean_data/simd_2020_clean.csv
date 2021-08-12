@@ -1,0 +1,1057 @@
+la_name,band,rank,la_code,count
+Aberdeen City,decile,1,S12000033,5
+Aberdeen City,decile,2,S12000033,24
+Aberdeen City,decile,3,S12000033,30
+Aberdeen City,decile,4,S12000033,35
+Aberdeen City,decile,5,S12000033,18
+Aberdeen City,decile,6,S12000033,26
+Aberdeen City,decile,7,S12000033,16
+Aberdeen City,decile,8,S12000033,25
+Aberdeen City,decile,9,S12000033,34
+Aberdeen City,decile,10,S12000033,70
+Aberdeen City,quintile,1,S12000033,29
+Aberdeen City,quintile,2,S12000033,65
+Aberdeen City,quintile,3,S12000033,44
+Aberdeen City,quintile,4,S12000033,41
+Aberdeen City,quintile,5,S12000033,104
+Aberdeen City,vigintile,1,S12000033,1
+Aberdeen City,vigintile,2,S12000033,4
+Aberdeen City,vigintile,3,S12000033,9
+Aberdeen City,vigintile,4,S12000033,15
+Aberdeen City,vigintile,5,S12000033,18
+Aberdeen City,vigintile,6,S12000033,12
+Aberdeen City,vigintile,7,S12000033,17
+Aberdeen City,vigintile,8,S12000033,18
+Aberdeen City,vigintile,9,S12000033,9
+Aberdeen City,vigintile,10,S12000033,9
+Aberdeen City,vigintile,11,S12000033,14
+Aberdeen City,vigintile,12,S12000033,12
+Aberdeen City,vigintile,13,S12000033,5
+Aberdeen City,vigintile,14,S12000033,11
+Aberdeen City,vigintile,15,S12000033,6
+Aberdeen City,vigintile,16,S12000033,19
+Aberdeen City,vigintile,17,S12000033,12
+Aberdeen City,vigintile,18,S12000033,22
+Aberdeen City,vigintile,19,S12000033,28
+Aberdeen City,vigintile,20,S12000033,42
+Aberdeenshire,decile,1,S12000034,2
+Aberdeenshire,decile,2,S12000034,7
+Aberdeenshire,decile,3,S12000034,8
+Aberdeenshire,decile,4,S12000034,22
+Aberdeenshire,decile,5,S12000034,29
+Aberdeenshire,decile,6,S12000034,49
+Aberdeenshire,decile,7,S12000034,49
+Aberdeenshire,decile,8,S12000034,75
+Aberdeenshire,decile,9,S12000034,61
+Aberdeenshire,decile,10,S12000034,38
+Aberdeenshire,quintile,1,S12000034,9
+Aberdeenshire,quintile,2,S12000034,30
+Aberdeenshire,quintile,3,S12000034,78
+Aberdeenshire,quintile,4,S12000034,124
+Aberdeenshire,quintile,5,S12000034,99
+Aberdeenshire,vigintile,2,S12000034,2
+Aberdeenshire,vigintile,3,S12000034,3
+Aberdeenshire,vigintile,4,S12000034,4
+Aberdeenshire,vigintile,5,S12000034,3
+Aberdeenshire,vigintile,6,S12000034,5
+Aberdeenshire,vigintile,7,S12000034,9
+Aberdeenshire,vigintile,8,S12000034,13
+Aberdeenshire,vigintile,9,S12000034,11
+Aberdeenshire,vigintile,10,S12000034,18
+Aberdeenshire,vigintile,11,S12000034,22
+Aberdeenshire,vigintile,12,S12000034,27
+Aberdeenshire,vigintile,13,S12000034,19
+Aberdeenshire,vigintile,14,S12000034,30
+Aberdeenshire,vigintile,15,S12000034,37
+Aberdeenshire,vigintile,16,S12000034,38
+Aberdeenshire,vigintile,17,S12000034,36
+Aberdeenshire,vigintile,18,S12000034,25
+Aberdeenshire,vigintile,19,S12000034,16
+Aberdeenshire,vigintile,20,S12000034,22
+Angus,decile,1,S12000041,2
+Angus,decile,2,S12000041,10
+Angus,decile,3,S12000041,15
+Angus,decile,4,S12000041,15
+Angus,decile,5,S12000041,23
+Angus,decile,6,S12000041,25
+Angus,decile,7,S12000041,23
+Angus,decile,8,S12000041,22
+Angus,decile,9,S12000041,15
+Angus,decile,10,S12000041,5
+Angus,quintile,1,S12000041,12
+Angus,quintile,2,S12000041,30
+Angus,quintile,3,S12000041,48
+Angus,quintile,4,S12000041,45
+Angus,quintile,5,S12000041,20
+Angus,vigintile,1,S12000041,1
+Angus,vigintile,2,S12000041,1
+Angus,vigintile,3,S12000041,4
+Angus,vigintile,4,S12000041,6
+Angus,vigintile,5,S12000041,9
+Angus,vigintile,6,S12000041,6
+Angus,vigintile,7,S12000041,9
+Angus,vigintile,8,S12000041,6
+Angus,vigintile,9,S12000041,10
+Angus,vigintile,10,S12000041,13
+Angus,vigintile,11,S12000041,10
+Angus,vigintile,12,S12000041,15
+Angus,vigintile,13,S12000041,9
+Angus,vigintile,14,S12000041,14
+Angus,vigintile,15,S12000041,12
+Angus,vigintile,16,S12000041,10
+Angus,vigintile,17,S12000041,9
+Angus,vigintile,18,S12000041,6
+Angus,vigintile,19,S12000041,4
+Angus,vigintile,20,S12000041,1
+Argyll and Bute,decile,1,S12000035,6
+Argyll and Bute,decile,2,S12000035,7
+Argyll and Bute,decile,3,S12000035,11
+Argyll and Bute,decile,4,S12000035,10
+Argyll and Bute,decile,5,S12000035,20
+Argyll and Bute,decile,6,S12000035,29
+Argyll and Bute,decile,7,S12000035,21
+Argyll and Bute,decile,8,S12000035,10
+Argyll and Bute,decile,9,S12000035,6
+Argyll and Bute,decile,10,S12000035,5
+Argyll and Bute,quintile,1,S12000035,13
+Argyll and Bute,quintile,2,S12000035,21
+Argyll and Bute,quintile,3,S12000035,49
+Argyll and Bute,quintile,4,S12000035,31
+Argyll and Bute,quintile,5,S12000035,11
+Argyll and Bute,vigintile,1,S12000035,2
+Argyll and Bute,vigintile,2,S12000035,4
+Argyll and Bute,vigintile,3,S12000035,5
+Argyll and Bute,vigintile,4,S12000035,2
+Argyll and Bute,vigintile,5,S12000035,4
+Argyll and Bute,vigintile,6,S12000035,7
+Argyll and Bute,vigintile,7,S12000035,5
+Argyll and Bute,vigintile,8,S12000035,5
+Argyll and Bute,vigintile,9,S12000035,7
+Argyll and Bute,vigintile,10,S12000035,13
+Argyll and Bute,vigintile,11,S12000035,15
+Argyll and Bute,vigintile,12,S12000035,14
+Argyll and Bute,vigintile,13,S12000035,12
+Argyll and Bute,vigintile,14,S12000035,9
+Argyll and Bute,vigintile,15,S12000035,4
+Argyll and Bute,vigintile,16,S12000035,6
+Argyll and Bute,vigintile,17,S12000035,3
+Argyll and Bute,vigintile,18,S12000035,3
+Argyll and Bute,vigintile,19,S12000035,2
+Argyll and Bute,vigintile,20,S12000035,3
+City of Edinburgh,decile,1,S12000036,30
+City of Edinburgh,decile,2,S12000036,41
+City of Edinburgh,decile,3,S12000036,39
+City of Edinburgh,decile,4,S12000036,43
+City of Edinburgh,decile,5,S12000036,45
+City of Edinburgh,decile,6,S12000036,40
+City of Edinburgh,decile,7,S12000036,48
+City of Edinburgh,decile,8,S12000036,48
+City of Edinburgh,decile,9,S12000036,73
+City of Edinburgh,decile,10,S12000036,190
+City of Edinburgh,quintile,1,S12000036,71
+City of Edinburgh,quintile,2,S12000036,82
+City of Edinburgh,quintile,3,S12000036,85
+City of Edinburgh,quintile,4,S12000036,96
+City of Edinburgh,quintile,5,S12000036,263
+City of Edinburgh,vigintile,1,S12000036,18
+City of Edinburgh,vigintile,2,S12000036,12
+City of Edinburgh,vigintile,3,S12000036,18
+City of Edinburgh,vigintile,4,S12000036,23
+City of Edinburgh,vigintile,5,S12000036,23
+City of Edinburgh,vigintile,6,S12000036,16
+City of Edinburgh,vigintile,7,S12000036,19
+City of Edinburgh,vigintile,8,S12000036,24
+City of Edinburgh,vigintile,9,S12000036,22
+City of Edinburgh,vigintile,10,S12000036,23
+City of Edinburgh,vigintile,11,S12000036,17
+City of Edinburgh,vigintile,12,S12000036,23
+City of Edinburgh,vigintile,13,S12000036,22
+City of Edinburgh,vigintile,14,S12000036,26
+City of Edinburgh,vigintile,15,S12000036,22
+City of Edinburgh,vigintile,16,S12000036,26
+City of Edinburgh,vigintile,17,S12000036,31
+City of Edinburgh,vigintile,18,S12000036,42
+City of Edinburgh,vigintile,19,S12000036,79
+City of Edinburgh,vigintile,20,S12000036,111
+Clackmannanshire,decile,1,S12000005,7
+Clackmannanshire,decile,2,S12000005,11
+Clackmannanshire,decile,3,S12000005,11
+Clackmannanshire,decile,4,S12000005,8
+Clackmannanshire,decile,5,S12000005,8
+Clackmannanshire,decile,6,S12000005,4
+Clackmannanshire,decile,7,S12000005,6
+Clackmannanshire,decile,8,S12000005,4
+Clackmannanshire,decile,9,S12000005,9
+Clackmannanshire,decile,10,S12000005,4
+Clackmannanshire,quintile,1,S12000005,18
+Clackmannanshire,quintile,2,S12000005,19
+Clackmannanshire,quintile,3,S12000005,12
+Clackmannanshire,quintile,4,S12000005,10
+Clackmannanshire,quintile,5,S12000005,13
+Clackmannanshire,vigintile,1,S12000005,4
+Clackmannanshire,vigintile,2,S12000005,3
+Clackmannanshire,vigintile,3,S12000005,6
+Clackmannanshire,vigintile,4,S12000005,5
+Clackmannanshire,vigintile,5,S12000005,7
+Clackmannanshire,vigintile,6,S12000005,4
+Clackmannanshire,vigintile,7,S12000005,4
+Clackmannanshire,vigintile,8,S12000005,4
+Clackmannanshire,vigintile,9,S12000005,4
+Clackmannanshire,vigintile,10,S12000005,4
+Clackmannanshire,vigintile,12,S12000005,4
+Clackmannanshire,vigintile,13,S12000005,4
+Clackmannanshire,vigintile,14,S12000005,2
+Clackmannanshire,vigintile,15,S12000005,3
+Clackmannanshire,vigintile,16,S12000005,1
+Clackmannanshire,vigintile,17,S12000005,6
+Clackmannanshire,vigintile,18,S12000005,3
+Clackmannanshire,vigintile,19,S12000005,2
+Clackmannanshire,vigintile,20,S12000005,2
+Dumfries and Galloway,decile,1,S12000006,11
+Dumfries and Galloway,decile,2,S12000006,8
+Dumfries and Galloway,decile,3,S12000006,21
+Dumfries and Galloway,decile,4,S12000006,28
+Dumfries and Galloway,decile,5,S12000006,41
+Dumfries and Galloway,decile,6,S12000006,35
+Dumfries and Galloway,decile,7,S12000006,23
+Dumfries and Galloway,decile,8,S12000006,17
+Dumfries and Galloway,decile,9,S12000006,11
+Dumfries and Galloway,decile,10,S12000006,6
+Dumfries and Galloway,quintile,1,S12000006,19
+Dumfries and Galloway,quintile,2,S12000006,49
+Dumfries and Galloway,quintile,3,S12000006,76
+Dumfries and Galloway,quintile,4,S12000006,40
+Dumfries and Galloway,quintile,5,S12000006,17
+Dumfries and Galloway,vigintile,1,S12000006,3
+Dumfries and Galloway,vigintile,2,S12000006,8
+Dumfries and Galloway,vigintile,3,S12000006,3
+Dumfries and Galloway,vigintile,4,S12000006,5
+Dumfries and Galloway,vigintile,5,S12000006,9
+Dumfries and Galloway,vigintile,6,S12000006,12
+Dumfries and Galloway,vigintile,7,S12000006,11
+Dumfries and Galloway,vigintile,8,S12000006,17
+Dumfries and Galloway,vigintile,9,S12000006,20
+Dumfries and Galloway,vigintile,10,S12000006,21
+Dumfries and Galloway,vigintile,11,S12000006,20
+Dumfries and Galloway,vigintile,12,S12000006,15
+Dumfries and Galloway,vigintile,13,S12000006,10
+Dumfries and Galloway,vigintile,14,S12000006,13
+Dumfries and Galloway,vigintile,15,S12000006,11
+Dumfries and Galloway,vigintile,16,S12000006,6
+Dumfries and Galloway,vigintile,17,S12000006,5
+Dumfries and Galloway,vigintile,18,S12000006,6
+Dumfries and Galloway,vigintile,19,S12000006,4
+Dumfries and Galloway,vigintile,20,S12000006,2
+Dundee City,decile,1,S12000042,45
+Dundee City,decile,2,S12000042,25
+Dundee City,decile,3,S12000042,26
+Dundee City,decile,4,S12000042,12
+Dundee City,decile,5,S12000042,8
+Dundee City,decile,6,S12000042,12
+Dundee City,decile,7,S12000042,16
+Dundee City,decile,8,S12000042,15
+Dundee City,decile,9,S12000042,16
+Dundee City,decile,10,S12000042,13
+Dundee City,quintile,1,S12000042,70
+Dundee City,quintile,2,S12000042,38
+Dundee City,quintile,3,S12000042,20
+Dundee City,quintile,4,S12000042,31
+Dundee City,quintile,5,S12000042,29
+Dundee City,vigintile,1,S12000042,21
+Dundee City,vigintile,2,S12000042,24
+Dundee City,vigintile,3,S12000042,14
+Dundee City,vigintile,4,S12000042,11
+Dundee City,vigintile,5,S12000042,12
+Dundee City,vigintile,6,S12000042,14
+Dundee City,vigintile,7,S12000042,9
+Dundee City,vigintile,8,S12000042,3
+Dundee City,vigintile,9,S12000042,6
+Dundee City,vigintile,10,S12000042,2
+Dundee City,vigintile,11,S12000042,10
+Dundee City,vigintile,12,S12000042,2
+Dundee City,vigintile,13,S12000042,10
+Dundee City,vigintile,14,S12000042,6
+Dundee City,vigintile,15,S12000042,8
+Dundee City,vigintile,16,S12000042,7
+Dundee City,vigintile,17,S12000042,8
+Dundee City,vigintile,18,S12000042,8
+Dundee City,vigintile,19,S12000042,7
+Dundee City,vigintile,20,S12000042,6
+East Ayrshire,decile,1,S12000008,25
+East Ayrshire,decile,2,S12000008,26
+East Ayrshire,decile,3,S12000008,21
+East Ayrshire,decile,4,S12000008,20
+East Ayrshire,decile,5,S12000008,14
+East Ayrshire,decile,6,S12000008,13
+East Ayrshire,decile,7,S12000008,15
+East Ayrshire,decile,8,S12000008,12
+East Ayrshire,decile,9,S12000008,9
+East Ayrshire,decile,10,S12000008,8
+East Ayrshire,quintile,1,S12000008,51
+East Ayrshire,quintile,2,S12000008,41
+East Ayrshire,quintile,3,S12000008,27
+East Ayrshire,quintile,4,S12000008,27
+East Ayrshire,quintile,5,S12000008,17
+East Ayrshire,vigintile,1,S12000008,10
+East Ayrshire,vigintile,2,S12000008,15
+East Ayrshire,vigintile,3,S12000008,11
+East Ayrshire,vigintile,4,S12000008,15
+East Ayrshire,vigintile,5,S12000008,11
+East Ayrshire,vigintile,6,S12000008,10
+East Ayrshire,vigintile,7,S12000008,14
+East Ayrshire,vigintile,8,S12000008,6
+East Ayrshire,vigintile,9,S12000008,7
+East Ayrshire,vigintile,10,S12000008,7
+East Ayrshire,vigintile,11,S12000008,8
+East Ayrshire,vigintile,12,S12000008,5
+East Ayrshire,vigintile,13,S12000008,10
+East Ayrshire,vigintile,14,S12000008,5
+East Ayrshire,vigintile,15,S12000008,6
+East Ayrshire,vigintile,16,S12000008,6
+East Ayrshire,vigintile,17,S12000008,4
+East Ayrshire,vigintile,18,S12000008,5
+East Ayrshire,vigintile,19,S12000008,5
+East Ayrshire,vigintile,20,S12000008,3
+East Dunbartonshire,decile,1,S12000045,3
+East Dunbartonshire,decile,2,S12000045,2
+East Dunbartonshire,decile,3,S12000045,11
+East Dunbartonshire,decile,4,S12000045,12
+East Dunbartonshire,decile,5,S12000045,4
+East Dunbartonshire,decile,6,S12000045,4
+East Dunbartonshire,decile,7,S12000045,14
+East Dunbartonshire,decile,8,S12000045,14
+East Dunbartonshire,decile,9,S12000045,29
+East Dunbartonshire,decile,10,S12000045,37
+East Dunbartonshire,quintile,1,S12000045,5
+East Dunbartonshire,quintile,2,S12000045,23
+East Dunbartonshire,quintile,3,S12000045,8
+East Dunbartonshire,quintile,4,S12000045,28
+East Dunbartonshire,quintile,5,S12000045,66
+East Dunbartonshire,vigintile,1,S12000045,1
+East Dunbartonshire,vigintile,2,S12000045,2
+East Dunbartonshire,vigintile,3,S12000045,1
+East Dunbartonshire,vigintile,4,S12000045,1
+East Dunbartonshire,vigintile,5,S12000045,2
+East Dunbartonshire,vigintile,6,S12000045,9
+East Dunbartonshire,vigintile,7,S12000045,9
+East Dunbartonshire,vigintile,8,S12000045,3
+East Dunbartonshire,vigintile,9,S12000045,1
+East Dunbartonshire,vigintile,10,S12000045,3
+East Dunbartonshire,vigintile,12,S12000045,4
+East Dunbartonshire,vigintile,13,S12000045,8
+East Dunbartonshire,vigintile,14,S12000045,6
+East Dunbartonshire,vigintile,15,S12000045,4
+East Dunbartonshire,vigintile,16,S12000045,10
+East Dunbartonshire,vigintile,17,S12000045,12
+East Dunbartonshire,vigintile,18,S12000045,17
+East Dunbartonshire,vigintile,19,S12000045,20
+East Dunbartonshire,vigintile,20,S12000045,17
+East Lothian,decile,1,S12000010,2
+East Lothian,decile,2,S12000010,6
+East Lothian,decile,3,S12000010,20
+East Lothian,decile,4,S12000010,20
+East Lothian,decile,5,S12000010,7
+East Lothian,decile,6,S12000010,22
+East Lothian,decile,7,S12000010,9
+East Lothian,decile,8,S12000010,20
+East Lothian,decile,9,S12000010,11
+East Lothian,decile,10,S12000010,15
+East Lothian,quintile,1,S12000010,8
+East Lothian,quintile,2,S12000010,40
+East Lothian,quintile,3,S12000010,29
+East Lothian,quintile,4,S12000010,29
+East Lothian,quintile,5,S12000010,26
+East Lothian,vigintile,2,S12000010,2
+East Lothian,vigintile,3,S12000010,1
+East Lothian,vigintile,4,S12000010,5
+East Lothian,vigintile,5,S12000010,13
+East Lothian,vigintile,6,S12000010,7
+East Lothian,vigintile,7,S12000010,8
+East Lothian,vigintile,8,S12000010,12
+East Lothian,vigintile,9,S12000010,5
+East Lothian,vigintile,10,S12000010,2
+East Lothian,vigintile,11,S12000010,12
+East Lothian,vigintile,12,S12000010,10
+East Lothian,vigintile,13,S12000010,8
+East Lothian,vigintile,14,S12000010,1
+East Lothian,vigintile,15,S12000010,10
+East Lothian,vigintile,16,S12000010,10
+East Lothian,vigintile,17,S12000010,8
+East Lothian,vigintile,18,S12000010,3
+East Lothian,vigintile,19,S12000010,12
+East Lothian,vigintile,20,S12000010,3
+East Renfrewshire,decile,1,S12000011,2
+East Renfrewshire,decile,2,S12000011,5
+East Renfrewshire,decile,3,S12000011,3
+East Renfrewshire,decile,4,S12000011,10
+East Renfrewshire,decile,5,S12000011,8
+East Renfrewshire,decile,6,S12000011,3
+East Renfrewshire,decile,7,S12000011,7
+East Renfrewshire,decile,8,S12000011,14
+East Renfrewshire,decile,9,S12000011,23
+East Renfrewshire,decile,10,S12000011,47
+East Renfrewshire,quintile,1,S12000011,7
+East Renfrewshire,quintile,2,S12000011,13
+East Renfrewshire,quintile,3,S12000011,11
+East Renfrewshire,quintile,4,S12000011,21
+East Renfrewshire,quintile,5,S12000011,70
+East Renfrewshire,vigintile,1,S12000011,1
+East Renfrewshire,vigintile,2,S12000011,1
+East Renfrewshire,vigintile,3,S12000011,2
+East Renfrewshire,vigintile,4,S12000011,3
+East Renfrewshire,vigintile,5,S12000011,2
+East Renfrewshire,vigintile,6,S12000011,1
+East Renfrewshire,vigintile,7,S12000011,6
+East Renfrewshire,vigintile,8,S12000011,4
+East Renfrewshire,vigintile,9,S12000011,3
+East Renfrewshire,vigintile,10,S12000011,5
+East Renfrewshire,vigintile,11,S12000011,2
+East Renfrewshire,vigintile,12,S12000011,1
+East Renfrewshire,vigintile,13,S12000011,2
+East Renfrewshire,vigintile,14,S12000011,5
+East Renfrewshire,vigintile,15,S12000011,5
+East Renfrewshire,vigintile,16,S12000011,9
+East Renfrewshire,vigintile,17,S12000011,9
+East Renfrewshire,vigintile,18,S12000011,14
+East Renfrewshire,vigintile,19,S12000011,13
+East Renfrewshire,vigintile,20,S12000011,34
+Eilean Siar,decile,3,S12000013,2
+Eilean Siar,decile,4,S12000013,4
+Eilean Siar,decile,5,S12000013,14
+Eilean Siar,decile,6,S12000013,16
+Eilean Siar,quintile,2,S12000013,6
+Eilean Siar,quintile,3,S12000013,30
+Eilean Siar,vigintile,6,S12000013,2
+Eilean Siar,vigintile,8,S12000013,4
+Eilean Siar,vigintile,9,S12000013,7
+Eilean Siar,vigintile,10,S12000013,7
+Eilean Siar,vigintile,11,S12000013,9
+Eilean Siar,vigintile,12,S12000013,7
+Falkirk,decile,1,S12000014,13
+Falkirk,decile,2,S12000014,22
+Falkirk,decile,3,S12000014,27
+Falkirk,decile,4,S12000014,23
+Falkirk,decile,5,S12000014,32
+Falkirk,decile,6,S12000014,22
+Falkirk,decile,7,S12000014,13
+Falkirk,decile,8,S12000014,22
+Falkirk,decile,9,S12000014,26
+Falkirk,decile,10,S12000014,14
+Falkirk,quintile,1,S12000014,35
+Falkirk,quintile,2,S12000014,50
+Falkirk,quintile,3,S12000014,54
+Falkirk,quintile,4,S12000014,35
+Falkirk,quintile,5,S12000014,40
+Falkirk,vigintile,1,S12000014,5
+Falkirk,vigintile,2,S12000014,8
+Falkirk,vigintile,3,S12000014,10
+Falkirk,vigintile,4,S12000014,12
+Falkirk,vigintile,5,S12000014,18
+Falkirk,vigintile,6,S12000014,9
+Falkirk,vigintile,7,S12000014,15
+Falkirk,vigintile,8,S12000014,8
+Falkirk,vigintile,9,S12000014,22
+Falkirk,vigintile,10,S12000014,10
+Falkirk,vigintile,11,S12000014,14
+Falkirk,vigintile,12,S12000014,8
+Falkirk,vigintile,13,S12000014,9
+Falkirk,vigintile,14,S12000014,4
+Falkirk,vigintile,15,S12000014,10
+Falkirk,vigintile,16,S12000014,12
+Falkirk,vigintile,17,S12000014,16
+Falkirk,vigintile,18,S12000014,10
+Falkirk,vigintile,19,S12000014,7
+Falkirk,vigintile,20,S12000014,7
+Fife,decile,1,S12000047,38
+Fife,decile,2,S12000047,59
+Fife,decile,3,S12000047,49
+Fife,decile,4,S12000047,51
+Fife,decile,5,S12000047,57
+Fife,decile,6,S12000047,40
+Fife,decile,7,S12000047,46
+Fife,decile,8,S12000047,57
+Fife,decile,9,S12000047,48
+Fife,decile,10,S12000047,49
+Fife,quintile,1,S12000047,97
+Fife,quintile,2,S12000047,100
+Fife,quintile,3,S12000047,97
+Fife,quintile,4,S12000047,103
+Fife,quintile,5,S12000047,97
+Fife,vigintile,1,S12000047,14
+Fife,vigintile,2,S12000047,24
+Fife,vigintile,3,S12000047,38
+Fife,vigintile,4,S12000047,21
+Fife,vigintile,5,S12000047,20
+Fife,vigintile,6,S12000047,29
+Fife,vigintile,7,S12000047,24
+Fife,vigintile,8,S12000047,27
+Fife,vigintile,9,S12000047,27
+Fife,vigintile,10,S12000047,30
+Fife,vigintile,11,S12000047,24
+Fife,vigintile,12,S12000047,16
+Fife,vigintile,13,S12000047,29
+Fife,vigintile,14,S12000047,17
+Fife,vigintile,15,S12000047,31
+Fife,vigintile,16,S12000047,26
+Fife,vigintile,17,S12000047,23
+Fife,vigintile,18,S12000047,25
+Fife,vigintile,19,S12000047,29
+Fife,vigintile,20,S12000047,20
+Glasgow City,decile,1,S12000049,227
+Glasgow City,decile,2,S12000049,112
+Glasgow City,decile,3,S12000049,83
+Glasgow City,decile,4,S12000049,50
+Glasgow City,decile,5,S12000049,53
+Glasgow City,decile,6,S12000049,45
+Glasgow City,decile,7,S12000049,47
+Glasgow City,decile,8,S12000049,44
+Glasgow City,decile,9,S12000049,47
+Glasgow City,decile,10,S12000049,38
+Glasgow City,quintile,1,S12000049,339
+Glasgow City,quintile,2,S12000049,133
+Glasgow City,quintile,3,S12000049,98
+Glasgow City,quintile,4,S12000049,91
+Glasgow City,quintile,5,S12000049,85
+Glasgow City,vigintile,1,S12000049,141
+Glasgow City,vigintile,2,S12000049,86
+Glasgow City,vigintile,3,S12000049,65
+Glasgow City,vigintile,4,S12000049,47
+Glasgow City,vigintile,5,S12000049,42
+Glasgow City,vigintile,6,S12000049,41
+Glasgow City,vigintile,7,S12000049,31
+Glasgow City,vigintile,8,S12000049,19
+Glasgow City,vigintile,9,S12000049,23
+Glasgow City,vigintile,10,S12000049,30
+Glasgow City,vigintile,11,S12000049,25
+Glasgow City,vigintile,12,S12000049,20
+Glasgow City,vigintile,13,S12000049,23
+Glasgow City,vigintile,14,S12000049,24
+Glasgow City,vigintile,15,S12000049,25
+Glasgow City,vigintile,16,S12000049,19
+Glasgow City,vigintile,17,S12000049,21
+Glasgow City,vigintile,18,S12000049,26
+Glasgow City,vigintile,19,S12000049,19
+Glasgow City,vigintile,20,S12000049,19
+Highland,decile,1,S12000017,13
+Highland,decile,2,S12000017,17
+Highland,decile,3,S12000017,20
+Highland,decile,4,S12000017,34
+Highland,decile,5,S12000017,52
+Highland,decile,6,S12000017,59
+Highland,decile,7,S12000017,55
+Highland,decile,8,S12000017,39
+Highland,decile,9,S12000017,14
+Highland,decile,10,S12000017,9
+Highland,quintile,1,S12000017,30
+Highland,quintile,2,S12000017,54
+Highland,quintile,3,S12000017,111
+Highland,quintile,4,S12000017,94
+Highland,quintile,5,S12000017,23
+Highland,vigintile,1,S12000017,5
+Highland,vigintile,2,S12000017,8
+Highland,vigintile,3,S12000017,9
+Highland,vigintile,4,S12000017,8
+Highland,vigintile,5,S12000017,9
+Highland,vigintile,6,S12000017,11
+Highland,vigintile,7,S12000017,19
+Highland,vigintile,8,S12000017,15
+Highland,vigintile,9,S12000017,32
+Highland,vigintile,10,S12000017,20
+Highland,vigintile,11,S12000017,26
+Highland,vigintile,12,S12000017,33
+Highland,vigintile,13,S12000017,26
+Highland,vigintile,14,S12000017,29
+Highland,vigintile,15,S12000017,27
+Highland,vigintile,16,S12000017,12
+Highland,vigintile,17,S12000017,6
+Highland,vigintile,18,S12000017,8
+Highland,vigintile,19,S12000017,8
+Highland,vigintile,20,S12000017,1
+Inverclyde,decile,1,S12000018,36
+Inverclyde,decile,2,S12000018,15
+Inverclyde,decile,3,S12000018,9
+Inverclyde,decile,4,S12000018,7
+Inverclyde,decile,5,S12000018,5
+Inverclyde,decile,6,S12000018,9
+Inverclyde,decile,7,S12000018,11
+Inverclyde,decile,8,S12000018,5
+Inverclyde,decile,9,S12000018,14
+Inverclyde,decile,10,S12000018,3
+Inverclyde,quintile,1,S12000018,51
+Inverclyde,quintile,2,S12000018,16
+Inverclyde,quintile,3,S12000018,14
+Inverclyde,quintile,4,S12000018,16
+Inverclyde,quintile,5,S12000018,17
+Inverclyde,vigintile,1,S12000018,21
+Inverclyde,vigintile,2,S12000018,15
+Inverclyde,vigintile,3,S12000018,6
+Inverclyde,vigintile,4,S12000018,9
+Inverclyde,vigintile,5,S12000018,4
+Inverclyde,vigintile,6,S12000018,5
+Inverclyde,vigintile,7,S12000018,3
+Inverclyde,vigintile,8,S12000018,4
+Inverclyde,vigintile,9,S12000018,5
+Inverclyde,vigintile,11,S12000018,3
+Inverclyde,vigintile,12,S12000018,6
+Inverclyde,vigintile,13,S12000018,8
+Inverclyde,vigintile,14,S12000018,3
+Inverclyde,vigintile,15,S12000018,1
+Inverclyde,vigintile,16,S12000018,4
+Inverclyde,vigintile,17,S12000018,8
+Inverclyde,vigintile,18,S12000018,6
+Inverclyde,vigintile,19,S12000018,1
+Inverclyde,vigintile,20,S12000018,2
+Midlothian,decile,1,S12000019,3
+Midlothian,decile,2,S12000019,7
+Midlothian,decile,3,S12000019,23
+Midlothian,decile,4,S12000019,19
+Midlothian,decile,5,S12000019,13
+Midlothian,decile,6,S12000019,14
+Midlothian,decile,7,S12000019,8
+Midlothian,decile,8,S12000019,11
+Midlothian,decile,9,S12000019,10
+Midlothian,decile,10,S12000019,7
+Midlothian,quintile,1,S12000019,10
+Midlothian,quintile,2,S12000019,42
+Midlothian,quintile,3,S12000019,27
+Midlothian,quintile,4,S12000019,19
+Midlothian,quintile,5,S12000019,17
+Midlothian,vigintile,1,S12000019,2
+Midlothian,vigintile,2,S12000019,1
+Midlothian,vigintile,3,S12000019,2
+Midlothian,vigintile,4,S12000019,5
+Midlothian,vigintile,5,S12000019,12
+Midlothian,vigintile,6,S12000019,11
+Midlothian,vigintile,7,S12000019,10
+Midlothian,vigintile,8,S12000019,9
+Midlothian,vigintile,9,S12000019,8
+Midlothian,vigintile,10,S12000019,5
+Midlothian,vigintile,11,S12000019,6
+Midlothian,vigintile,12,S12000019,8
+Midlothian,vigintile,13,S12000019,5
+Midlothian,vigintile,14,S12000019,3
+Midlothian,vigintile,15,S12000019,7
+Midlothian,vigintile,16,S12000019,4
+Midlothian,vigintile,17,S12000019,5
+Midlothian,vigintile,18,S12000019,5
+Midlothian,vigintile,19,S12000019,3
+Midlothian,vigintile,20,S12000019,4
+Moray,decile,1,S12000020,1
+Moray,decile,2,S12000020,3
+Moray,decile,3,S12000020,7
+Moray,decile,4,S12000020,14
+Moray,decile,5,S12000020,17
+Moray,decile,6,S12000020,23
+Moray,decile,7,S12000020,28
+Moray,decile,8,S12000020,18
+Moray,decile,9,S12000020,7
+Moray,decile,10,S12000020,8
+Moray,quintile,1,S12000020,4
+Moray,quintile,2,S12000020,21
+Moray,quintile,3,S12000020,40
+Moray,quintile,4,S12000020,46
+Moray,quintile,5,S12000020,15
+Moray,vigintile,2,S12000020,1
+Moray,vigintile,4,S12000020,3
+Moray,vigintile,5,S12000020,3
+Moray,vigintile,6,S12000020,4
+Moray,vigintile,7,S12000020,7
+Moray,vigintile,8,S12000020,7
+Moray,vigintile,9,S12000020,7
+Moray,vigintile,10,S12000020,10
+Moray,vigintile,11,S12000020,16
+Moray,vigintile,12,S12000020,7
+Moray,vigintile,13,S12000020,15
+Moray,vigintile,14,S12000020,13
+Moray,vigintile,15,S12000020,12
+Moray,vigintile,16,S12000020,6
+Moray,vigintile,17,S12000020,5
+Moray,vigintile,18,S12000020,2
+Moray,vigintile,19,S12000020,4
+Moray,vigintile,20,S12000020,4
+North Ayrshire,decile,1,S12000021,30
+North Ayrshire,decile,2,S12000021,44
+North Ayrshire,decile,3,S12000021,20
+North Ayrshire,decile,4,S12000021,16
+North Ayrshire,decile,5,S12000021,18
+North Ayrshire,decile,6,S12000021,10
+North Ayrshire,decile,7,S12000021,15
+North Ayrshire,decile,8,S12000021,14
+North Ayrshire,decile,9,S12000021,17
+North Ayrshire,decile,10,S12000021,2
+North Ayrshire,quintile,1,S12000021,74
+North Ayrshire,quintile,2,S12000021,36
+North Ayrshire,quintile,3,S12000021,28
+North Ayrshire,quintile,4,S12000021,29
+North Ayrshire,quintile,5,S12000021,19
+North Ayrshire,vigintile,1,S12000021,12
+North Ayrshire,vigintile,2,S12000021,18
+North Ayrshire,vigintile,3,S12000021,20
+North Ayrshire,vigintile,4,S12000021,24
+North Ayrshire,vigintile,5,S12000021,13
+North Ayrshire,vigintile,6,S12000021,7
+North Ayrshire,vigintile,7,S12000021,6
+North Ayrshire,vigintile,8,S12000021,10
+North Ayrshire,vigintile,9,S12000021,5
+North Ayrshire,vigintile,10,S12000021,13
+North Ayrshire,vigintile,11,S12000021,3
+North Ayrshire,vigintile,12,S12000021,7
+North Ayrshire,vigintile,13,S12000021,6
+North Ayrshire,vigintile,14,S12000021,9
+North Ayrshire,vigintile,15,S12000021,6
+North Ayrshire,vigintile,16,S12000021,8
+North Ayrshire,vigintile,17,S12000021,7
+North Ayrshire,vigintile,18,S12000021,10
+North Ayrshire,vigintile,19,S12000021,2
+North Lanarkshire,decile,1,S12000050,60
+North Lanarkshire,decile,2,S12000050,93
+North Lanarkshire,decile,3,S12000050,65
+North Lanarkshire,decile,4,S12000050,56
+North Lanarkshire,decile,5,S12000050,39
+North Lanarkshire,decile,6,S12000050,20
+North Lanarkshire,decile,7,S12000050,37
+North Lanarkshire,decile,8,S12000050,28
+North Lanarkshire,decile,9,S12000050,44
+North Lanarkshire,decile,10,S12000050,5
+North Lanarkshire,quintile,1,S12000050,153
+North Lanarkshire,quintile,2,S12000050,121
+North Lanarkshire,quintile,3,S12000050,59
+North Lanarkshire,quintile,4,S12000050,65
+North Lanarkshire,quintile,5,S12000050,49
+North Lanarkshire,vigintile,1,S12000050,30
+North Lanarkshire,vigintile,2,S12000050,30
+North Lanarkshire,vigintile,3,S12000050,49
+North Lanarkshire,vigintile,4,S12000050,44
+North Lanarkshire,vigintile,5,S12000050,33
+North Lanarkshire,vigintile,6,S12000050,32
+North Lanarkshire,vigintile,7,S12000050,24
+North Lanarkshire,vigintile,8,S12000050,32
+North Lanarkshire,vigintile,9,S12000050,18
+North Lanarkshire,vigintile,10,S12000050,21
+North Lanarkshire,vigintile,11,S12000050,10
+North Lanarkshire,vigintile,12,S12000050,10
+North Lanarkshire,vigintile,13,S12000050,21
+North Lanarkshire,vigintile,14,S12000050,16
+North Lanarkshire,vigintile,15,S12000050,15
+North Lanarkshire,vigintile,16,S12000050,13
+North Lanarkshire,vigintile,17,S12000050,24
+North Lanarkshire,vigintile,18,S12000050,20
+North Lanarkshire,vigintile,19,S12000050,4
+North Lanarkshire,vigintile,20,S12000050,1
+Orkney Islands,decile,3,S12000023,1
+Orkney Islands,decile,4,S12000023,5
+Orkney Islands,decile,5,S12000023,5
+Orkney Islands,decile,7,S12000023,11
+Orkney Islands,decile,8,S12000023,6
+Orkney Islands,decile,9,S12000023,1
+Orkney Islands,quintile,2,S12000023,6
+Orkney Islands,quintile,3,S12000023,5
+Orkney Islands,quintile,4,S12000023,17
+Orkney Islands,quintile,5,S12000023,1
+Orkney Islands,vigintile,6,S12000023,1
+Orkney Islands,vigintile,7,S12000023,1
+Orkney Islands,vigintile,8,S12000023,4
+Orkney Islands,vigintile,9,S12000023,1
+Orkney Islands,vigintile,10,S12000023,4
+Orkney Islands,vigintile,13,S12000023,7
+Orkney Islands,vigintile,14,S12000023,4
+Orkney Islands,vigintile,15,S12000023,3
+Orkney Islands,vigintile,16,S12000023,3
+Orkney Islands,vigintile,17,S12000023,1
+Perth and Kinross,decile,1,S12000048,3
+Perth and Kinross,decile,2,S12000048,8
+Perth and Kinross,decile,3,S12000048,11
+Perth and Kinross,decile,4,S12000048,17
+Perth and Kinross,decile,5,S12000048,15
+Perth and Kinross,decile,6,S12000048,23
+Perth and Kinross,decile,7,S12000048,37
+Perth and Kinross,decile,8,S12000048,28
+Perth and Kinross,decile,9,S12000048,28
+Perth and Kinross,decile,10,S12000048,16
+Perth and Kinross,quintile,1,S12000048,11
+Perth and Kinross,quintile,2,S12000048,28
+Perth and Kinross,quintile,3,S12000048,38
+Perth and Kinross,quintile,4,S12000048,65
+Perth and Kinross,quintile,5,S12000048,44
+Perth and Kinross,vigintile,2,S12000048,3
+Perth and Kinross,vigintile,3,S12000048,4
+Perth and Kinross,vigintile,4,S12000048,4
+Perth and Kinross,vigintile,5,S12000048,4
+Perth and Kinross,vigintile,6,S12000048,7
+Perth and Kinross,vigintile,7,S12000048,7
+Perth and Kinross,vigintile,8,S12000048,10
+Perth and Kinross,vigintile,9,S12000048,6
+Perth and Kinross,vigintile,10,S12000048,9
+Perth and Kinross,vigintile,11,S12000048,8
+Perth and Kinross,vigintile,12,S12000048,15
+Perth and Kinross,vigintile,13,S12000048,11
+Perth and Kinross,vigintile,14,S12000048,26
+Perth and Kinross,vigintile,15,S12000048,17
+Perth and Kinross,vigintile,16,S12000048,11
+Perth and Kinross,vigintile,17,S12000048,17
+Perth and Kinross,vigintile,18,S12000048,11
+Perth and Kinross,vigintile,19,S12000048,6
+Perth and Kinross,vigintile,20,S12000048,10
+Renfrewshire,decile,1,S12000038,33
+Renfrewshire,decile,2,S12000038,23
+Renfrewshire,decile,3,S12000038,22
+Renfrewshire,decile,4,S12000038,25
+Renfrewshire,decile,5,S12000038,20
+Renfrewshire,decile,6,S12000038,19
+Renfrewshire,decile,7,S12000038,13
+Renfrewshire,decile,8,S12000038,23
+Renfrewshire,decile,9,S12000038,28
+Renfrewshire,decile,10,S12000038,19
+Renfrewshire,quintile,1,S12000038,56
+Renfrewshire,quintile,2,S12000038,47
+Renfrewshire,quintile,3,S12000038,39
+Renfrewshire,quintile,4,S12000038,36
+Renfrewshire,quintile,5,S12000038,47
+Renfrewshire,vigintile,1,S12000038,13
+Renfrewshire,vigintile,2,S12000038,20
+Renfrewshire,vigintile,3,S12000038,16
+Renfrewshire,vigintile,4,S12000038,7
+Renfrewshire,vigintile,5,S12000038,11
+Renfrewshire,vigintile,6,S12000038,11
+Renfrewshire,vigintile,7,S12000038,13
+Renfrewshire,vigintile,8,S12000038,12
+Renfrewshire,vigintile,9,S12000038,10
+Renfrewshire,vigintile,10,S12000038,10
+Renfrewshire,vigintile,11,S12000038,6
+Renfrewshire,vigintile,12,S12000038,13
+Renfrewshire,vigintile,13,S12000038,6
+Renfrewshire,vigintile,14,S12000038,7
+Renfrewshire,vigintile,15,S12000038,8
+Renfrewshire,vigintile,16,S12000038,15
+Renfrewshire,vigintile,17,S12000038,15
+Renfrewshire,vigintile,18,S12000038,13
+Renfrewshire,vigintile,19,S12000038,15
+Renfrewshire,vigintile,20,S12000038,4
+Scottish Borders,decile,1,S12000026,3
+Scottish Borders,decile,2,S12000026,6
+Scottish Borders,decile,3,S12000026,6
+Scottish Borders,decile,4,S12000026,17
+Scottish Borders,decile,5,S12000026,23
+Scottish Borders,decile,6,S12000026,30
+Scottish Borders,decile,7,S12000026,28
+Scottish Borders,decile,8,S12000026,18
+Scottish Borders,decile,9,S12000026,7
+Scottish Borders,decile,10,S12000026,5
+Scottish Borders,quintile,1,S12000026,9
+Scottish Borders,quintile,2,S12000026,23
+Scottish Borders,quintile,3,S12000026,53
+Scottish Borders,quintile,4,S12000026,46
+Scottish Borders,quintile,5,S12000026,12
+Scottish Borders,vigintile,1,S12000026,1
+Scottish Borders,vigintile,2,S12000026,2
+Scottish Borders,vigintile,3,S12000026,4
+Scottish Borders,vigintile,4,S12000026,2
+Scottish Borders,vigintile,5,S12000026,2
+Scottish Borders,vigintile,6,S12000026,4
+Scottish Borders,vigintile,7,S12000026,9
+Scottish Borders,vigintile,8,S12000026,8
+Scottish Borders,vigintile,9,S12000026,12
+Scottish Borders,vigintile,10,S12000026,11
+Scottish Borders,vigintile,11,S12000026,11
+Scottish Borders,vigintile,12,S12000026,19
+Scottish Borders,vigintile,13,S12000026,13
+Scottish Borders,vigintile,14,S12000026,15
+Scottish Borders,vigintile,15,S12000026,10
+Scottish Borders,vigintile,16,S12000026,8
+Scottish Borders,vigintile,17,S12000026,5
+Scottish Borders,vigintile,18,S12000026,2
+Scottish Borders,vigintile,19,S12000026,4
+Scottish Borders,vigintile,20,S12000026,1
+Shetland Islands,decile,3,S12000027,1
+Shetland Islands,decile,4,S12000027,1
+Shetland Islands,decile,5,S12000027,3
+Shetland Islands,decile,6,S12000027,8
+Shetland Islands,decile,7,S12000027,12
+Shetland Islands,decile,8,S12000027,5
+Shetland Islands,quintile,2,S12000027,2
+Shetland Islands,quintile,3,S12000027,11
+Shetland Islands,quintile,4,S12000027,17
+Shetland Islands,vigintile,6,S12000027,1
+Shetland Islands,vigintile,8,S12000027,1
+Shetland Islands,vigintile,9,S12000027,1
+Shetland Islands,vigintile,10,S12000027,2
+Shetland Islands,vigintile,11,S12000027,3
+Shetland Islands,vigintile,12,S12000027,5
+Shetland Islands,vigintile,13,S12000027,5
+Shetland Islands,vigintile,14,S12000027,7
+Shetland Islands,vigintile,15,S12000027,3
+Shetland Islands,vigintile,16,S12000027,2
+South Ayrshire,decile,1,S12000028,15
+South Ayrshire,decile,2,S12000028,13
+South Ayrshire,decile,3,S12000028,11
+South Ayrshire,decile,4,S12000028,24
+South Ayrshire,decile,5,S12000028,25
+South Ayrshire,decile,6,S12000028,8
+South Ayrshire,decile,7,S12000028,12
+South Ayrshire,decile,8,S12000028,11
+South Ayrshire,decile,9,S12000028,22
+South Ayrshire,decile,10,S12000028,12
+South Ayrshire,quintile,1,S12000028,28
+South Ayrshire,quintile,2,S12000028,35
+South Ayrshire,quintile,3,S12000028,33
+South Ayrshire,quintile,4,S12000028,23
+South Ayrshire,quintile,5,S12000028,34
+South Ayrshire,vigintile,1,S12000028,7
+South Ayrshire,vigintile,2,S12000028,8
+South Ayrshire,vigintile,3,S12000028,5
+South Ayrshire,vigintile,4,S12000028,8
+South Ayrshire,vigintile,5,S12000028,5
+South Ayrshire,vigintile,6,S12000028,6
+South Ayrshire,vigintile,7,S12000028,14
+South Ayrshire,vigintile,8,S12000028,10
+South Ayrshire,vigintile,9,S12000028,17
+South Ayrshire,vigintile,10,S12000028,8
+South Ayrshire,vigintile,11,S12000028,4
+South Ayrshire,vigintile,12,S12000028,4
+South Ayrshire,vigintile,13,S12000028,8
+South Ayrshire,vigintile,14,S12000028,4
+South Ayrshire,vigintile,15,S12000028,1
+South Ayrshire,vigintile,16,S12000028,10
+South Ayrshire,vigintile,17,S12000028,9
+South Ayrshire,vigintile,18,S12000028,13
+South Ayrshire,vigintile,19,S12000028,8
+South Ayrshire,vigintile,20,S12000028,4
+South Lanarkshire,decile,1,S12000029,43
+South Lanarkshire,decile,2,S12000029,45
+South Lanarkshire,decile,3,S12000029,59
+South Lanarkshire,decile,4,S12000029,48
+South Lanarkshire,decile,5,S12000029,43
+South Lanarkshire,decile,6,S12000029,43
+South Lanarkshire,decile,7,S12000029,32
+South Lanarkshire,decile,8,S12000029,45
+South Lanarkshire,decile,9,S12000029,48
+South Lanarkshire,decile,10,S12000029,25
+South Lanarkshire,quintile,1,S12000029,88
+South Lanarkshire,quintile,2,S12000029,107
+South Lanarkshire,quintile,3,S12000029,86
+South Lanarkshire,quintile,4,S12000029,77
+South Lanarkshire,quintile,5,S12000029,73
+South Lanarkshire,vigintile,1,S12000029,20
+South Lanarkshire,vigintile,2,S12000029,23
+South Lanarkshire,vigintile,3,S12000029,17
+South Lanarkshire,vigintile,4,S12000029,28
+South Lanarkshire,vigintile,5,S12000029,29
+South Lanarkshire,vigintile,6,S12000029,30
+South Lanarkshire,vigintile,7,S12000029,22
+South Lanarkshire,vigintile,8,S12000029,26
+South Lanarkshire,vigintile,9,S12000029,26
+South Lanarkshire,vigintile,10,S12000029,17
+South Lanarkshire,vigintile,11,S12000029,24
+South Lanarkshire,vigintile,12,S12000029,19
+South Lanarkshire,vigintile,13,S12000029,18
+South Lanarkshire,vigintile,14,S12000029,14
+South Lanarkshire,vigintile,15,S12000029,22
+South Lanarkshire,vigintile,16,S12000029,23
+South Lanarkshire,vigintile,17,S12000029,23
+South Lanarkshire,vigintile,18,S12000029,25
+South Lanarkshire,vigintile,19,S12000029,20
+South Lanarkshire,vigintile,20,S12000029,5
+Stirling,decile,1,S12000030,7
+Stirling,decile,2,S12000030,8
+Stirling,decile,3,S12000030,7
+Stirling,decile,4,S12000030,10
+Stirling,decile,5,S12000030,7
+Stirling,decile,6,S12000030,11
+Stirling,decile,7,S12000030,19
+Stirling,decile,8,S12000030,19
+Stirling,decile,9,S12000030,14
+Stirling,decile,10,S12000030,19
+Stirling,quintile,1,S12000030,15
+Stirling,quintile,2,S12000030,17
+Stirling,quintile,3,S12000030,18
+Stirling,quintile,4,S12000030,38
+Stirling,quintile,5,S12000030,33
+Stirling,vigintile,1,S12000030,2
+Stirling,vigintile,2,S12000030,5
+Stirling,vigintile,3,S12000030,2
+Stirling,vigintile,4,S12000030,6
+Stirling,vigintile,5,S12000030,3
+Stirling,vigintile,6,S12000030,4
+Stirling,vigintile,7,S12000030,6
+Stirling,vigintile,8,S12000030,4
+Stirling,vigintile,9,S12000030,3
+Stirling,vigintile,10,S12000030,4
+Stirling,vigintile,11,S12000030,5
+Stirling,vigintile,12,S12000030,6
+Stirling,vigintile,13,S12000030,7
+Stirling,vigintile,14,S12000030,12
+Stirling,vigintile,15,S12000030,10
+Stirling,vigintile,16,S12000030,9
+Stirling,vigintile,17,S12000030,7
+Stirling,vigintile,18,S12000030,7
+Stirling,vigintile,19,S12000030,9
+Stirling,vigintile,20,S12000030,10
+West Dunbartonshire,decile,1,S12000039,21
+West Dunbartonshire,decile,2,S12000039,27
+West Dunbartonshire,decile,3,S12000039,18
+West Dunbartonshire,decile,4,S12000039,13
+West Dunbartonshire,decile,5,S12000039,14
+West Dunbartonshire,decile,6,S12000039,6
+West Dunbartonshire,decile,7,S12000039,8
+West Dunbartonshire,decile,8,S12000039,7
+West Dunbartonshire,decile,9,S12000039,4
+West Dunbartonshire,decile,10,S12000039,3
+West Dunbartonshire,quintile,1,S12000039,48
+West Dunbartonshire,quintile,2,S12000039,31
+West Dunbartonshire,quintile,3,S12000039,20
+West Dunbartonshire,quintile,4,S12000039,15
+West Dunbartonshire,quintile,5,S12000039,7
+West Dunbartonshire,vigintile,1,S12000039,9
+West Dunbartonshire,vigintile,2,S12000039,12
+West Dunbartonshire,vigintile,3,S12000039,17
+West Dunbartonshire,vigintile,4,S12000039,10
+West Dunbartonshire,vigintile,5,S12000039,6
+West Dunbartonshire,vigintile,6,S12000039,12
+West Dunbartonshire,vigintile,7,S12000039,2
+West Dunbartonshire,vigintile,8,S12000039,11
+West Dunbartonshire,vigintile,9,S12000039,6
+West Dunbartonshire,vigintile,10,S12000039,8
+West Dunbartonshire,vigintile,11,S12000039,3
+West Dunbartonshire,vigintile,12,S12000039,3
+West Dunbartonshire,vigintile,13,S12000039,5
+West Dunbartonshire,vigintile,14,S12000039,3
+West Dunbartonshire,vigintile,15,S12000039,3
+West Dunbartonshire,vigintile,16,S12000039,4
+West Dunbartonshire,vigintile,17,S12000039,2
+West Dunbartonshire,vigintile,18,S12000039,2
+West Dunbartonshire,vigintile,19,S12000039,3
+West Lothian,decile,1,S12000040,11
+West Lothian,decile,2,S12000040,24
+West Lothian,decile,3,S12000040,40
+West Lothian,decile,4,S12000040,29
+West Lothian,decile,5,S12000040,18
+West Lothian,decile,6,S12000040,29
+West Lothian,decile,7,S12000040,19
+West Lothian,decile,8,S12000040,21
+West Lothian,decile,9,S12000040,22
+West Lothian,decile,10,S12000040,26
+West Lothian,quintile,1,S12000040,35
+West Lothian,quintile,2,S12000040,69
+West Lothian,quintile,3,S12000040,47
+West Lothian,quintile,4,S12000040,40
+West Lothian,quintile,5,S12000040,48
+West Lothian,vigintile,1,S12000040,4
+West Lothian,vigintile,2,S12000040,7
+West Lothian,vigintile,3,S12000040,8
+West Lothian,vigintile,4,S12000040,16
+West Lothian,vigintile,5,S12000040,22
+West Lothian,vigintile,6,S12000040,18
+West Lothian,vigintile,7,S12000040,16
+West Lothian,vigintile,8,S12000040,13
+West Lothian,vigintile,9,S12000040,8
+West Lothian,vigintile,10,S12000040,10
+West Lothian,vigintile,11,S12000040,18
+West Lothian,vigintile,12,S12000040,11
+West Lothian,vigintile,13,S12000040,8
+West Lothian,vigintile,14,S12000040,11
+West Lothian,vigintile,15,S12000040,10
+West Lothian,vigintile,16,S12000040,11
+West Lothian,vigintile,17,S12000040,12
+West Lothian,vigintile,18,S12000040,10
+West Lothian,vigintile,19,S12000040,15
+West Lothian,vigintile,20,S12000040,11

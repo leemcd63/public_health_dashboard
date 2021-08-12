@@ -14,11 +14,14 @@ simd_trimmed <- simd_2020 %>%
          decile = SIMD2020v2_Decile,
          quintile = SIMD2020v2_Quintile,
          la_code = LAcode,
-         la_name = LAname)
+         la_name = LAname) %>%
+  mutate(la_name = if_else(la_name == "Na h-Eileanan Siar", "Eilean Siar", la_name))
 
 # Covert to long format, summarise counts of each band and rank in each council area.
 simd_long <- simd_trimmed %>%
   pivot_longer(vigintile:quintile, names_to = "band", values_to = "rank") %>%
-  group_by(la_name, la_code, band, rank) %>%
-  summarise(count = n())
+  group_by(la_name, band, rank) %>%
+  summarise(la_code, count = n()) %>%
+  distinct()
 
+write_csv(simd_long, here("clean_data/simd_2020_clean.csv"))

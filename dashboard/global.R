@@ -28,5 +28,8 @@ alcohol_deaths <- read_csv(here("clean_data/alcohol_deaths_clean.csv")) %>%
                             gender == "female" ~ "Female"))
 alcohol_area <- read_csv(here("clean_data/alcohol_deaths_area.csv"))
 
+# Loading in SIMD data
+simd_data <- read_csv(here("clean_data/simd_2020_clean.csv"))
+
 #Launch App
 #shinyApp(ui = ui, server = server)

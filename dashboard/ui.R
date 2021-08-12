@@ -8,7 +8,8 @@ ui <- dashboardPage(skin = "black",
                         menuItem("Scotland Health Overview", tabName = "overview"),
                         menuItem("Life Expectancy", tabName = "life_expectancy"),
                         menuItem("Drug Deaths", tabName = "drug_deaths"),
-                        menuItem("Alcohol Deaths", tabName = "alcohol_deaths")
+                        menuItem("Alcohol Deaths", tabName = "alcohol_deaths"),
+                        menuItem("SIMD", tabName = "simd")
                       )
                     ),
                     
@@ -235,6 +236,63 @@ ui <- dashboardPage(skin = "black",
                                          
                                   )
                                   
+                                  
+                                  
+                                )
+                        ),
+                        
+                        tabItem(tabName = "simd",
+                                fluidRow(
+                                  column(width = 6,
+                                         box(width = NULL, solidHeader = TRUE, background = "orange",
+                                             column(width = 6, align = "center",
+                                                    selectInput("simd_map_band",
+                                                                label = "Select Banding:",
+                                                                choices = c("Quintile" = "quintile", 
+                                                                            "Decile" = "decile",
+                                                                            "Vigintile" = "vigintile"),
+                                                                selected = "Quintile")
+                                             ),
+                                             column(width = 6, align = "center",
+                                                    selectInput("simd_map_rank",
+                                                                label = "Ranked Below:",
+                                                                choices = c(1:5)),
+                                                    selected = 1)
+                                         ),
+                                         
+                                         
+                                         
+                                         
+                                         
+                                         
+                                         leafletOutput("simd_map", height = 600)
+                                         
+                                         
+                                  ),
+                                  
+                                  column(width = 6,
+                                         
+                                         box(width = NULL, solidHeader = TRUE, background = "orange",
+                                             column(width = 6, align = "center",
+                                                    selectInput("simd_plot_band",
+                                                                label = "Select Banding:",
+                                                                choices = c("Quintile" = "quintile", 
+                                                                            "Decile" = "decile",
+                                                                            "Vigintile" = "vigintile"),
+                                                                selected = "Quintile")
+                                             ),
+                                             column(width = 6, align = "center",
+                                                    selectInput("simd_plot_rank",
+                                                                label = "Ranked Below:",
+                                                                choices = c(1:5)),
+                                                    selected = 1)
+                                         ),
+                                         
+                                         
+                                         
+                                         plotlyOutput("simd_plot", height = 600, reportTheme = TRUE)
+                                         
+                                  )
                                   
                                   
                                 )

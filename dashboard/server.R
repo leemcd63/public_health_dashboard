@@ -604,6 +604,52 @@ server <- function(input, output, session) {
       )
 
   })
+  
+  # SIMD TAB -----------------------------
+  
+  simd_data_map <- reactive({
+    simd_data %>%
+      ungroup() %>%
+      filter(band == input$simd_map_band) %>%
+      filter(rank <= input$simd_map_rank) %>%
+      group_by(la_name) %>%
+      summarise(count = sum(count)) %>%
+      left_join(scotland_shape, by = c("la_name" = "local_auth")) %>%
+      st_as_sf()
+  })
+  
+  output$simd_map <- renderLeaflet({
+    
+    simd_data_map <- simd_data_map()
+    
+    bins <- c(0, 25, 50, 100, 150, 200)
+    pal <- colorBin("Oranges", domain = simd_data_map$count, bins = bins)
+    
+    simd_map_labels <- sprintf(
+      "<strong>%s</strong><br/>%g areas in top %s %s",
+      simd_data_map$la_name, simd_data_map$count, input$simd_map_rank, input$simd_map_band
+    ) %>%
+      lapply(htmltools::HTML)
+    
+    simd_data_map %>%
+      leaflet() %>%
+      setView(lng = -4.2026, lat = 57.8, zoom = 6, options = list()) %>%
+      addProviderTiles(providers$CartoDB.Positron) %>%
+      addPolygons(fillColor = ~pal(count),
+                  weight = 0.5,
+                  opacity = 0.5,
+                  color = "black",
+                  fillOpacity = 0.5,
+                  highlightOptions = highlightOptions(color = "white", weight = 2,
+                                                      bringToFront = TRUE),
+                  label = simd_map_labels,
+                  labelOptions = labelOptions(
+                    style = list("font-weight" = "normal", padding = "3px 8px"),
+                    textsize = "15px",
+                    direction = "auto")) %>%
+      addLegend(pal = pal, values = ~density, opacity = 0.7, title = NULL,
+                position = "bottomright")
+  })
 
 
 }
