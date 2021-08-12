@@ -18,7 +18,7 @@ server <- function(input, output, session) {
                  summarise(mean = round(mean(value), 1)) %>%
                  pull(mean),
                style = "font-size: 80%;"),
-      subtitle = "Average Life Expectancy of a Scottish Man in 2019",
+      subtitle = "Average Life Expectancy of Men in Scotland in 2019",
       icon = icon("heart"),
       color = "blue"
     )
@@ -35,7 +35,7 @@ server <- function(input, output, session) {
                  summarise(mean = round(mean(value), 1)) %>%
                  pull(mean),
                style = "font-size: 80%;"),
-      subtitle = "Average Life Expectancy of a Scottish Woman in 2019",
+      subtitle = "Average Life Expectancy of Women in Scotland in 2019",
       icon = icon("heart"),
       color = "blue"
     )
@@ -68,7 +68,7 @@ server <- function(input, output, session) {
                  slice_max(num_deaths) %>% 
                  pull(drug_name),
                style = "font-size: 80%;"),
-      subtitle = "Most Lethal Drug 2019",
+      subtitle = "Most Reported Cause of Drug-related Deaths in 2019",
       icon = icon("pills"),
       color = "purple"
     )
@@ -84,7 +84,7 @@ server <- function(input, output, session) {
                           year == 2019) %>%
                  pull(num_deaths),
                style = "font-size: 80%;"),
-      subtitle = "Drug Deaths 2019",
+      subtitle = "Total Drug-related Deaths in 2019",
       icon = icon("pills"),
       color = "purple"
     )
@@ -101,7 +101,7 @@ server <- function(input, output, session) {
                  slice_max(num_deaths) %>% 
                  pull(council_area),
                style = "font-size: 80%;"),
-      subtitle = "Council Area with Most Drug Deaths 2019",
+      subtitle = "Council Area with Most Drug-related Deaths in 2019",
       icon = icon("home"),
       color = "purple"
     )
@@ -117,7 +117,7 @@ server <- function(input, output, session) {
                  slice_max(count, n = 1, with_ties = FALSE) %>% 
                  pull(age_group),
                style = "font-size: 80%;"),
-      subtitle = "Age of Most Alcohol-related Mortality in 2019",
+      subtitle = "Age Group with Most Alcohol-specific Deaths in 2019",
       icon = icon("wine-glass"),
       color = "green"
     )
@@ -133,7 +133,7 @@ server <- function(input, output, session) {
                  summarise(count = sum(count)) %>% 
                  pull(count),
                style = "font-size: 80%;"),
-      subtitle = "Total Alcohol Deaths 2019",
+      subtitle = "Total Alcohol-specific Deaths in 2019",
       icon = icon("wine-glass"),
       color = "green"
     )
@@ -149,7 +149,7 @@ server <- function(input, output, session) {
                  slice_max(count, n = 1) %>% 
                  pull(area),
                style = "font-size: 80%;"),
-      subtitle = "Council Area with Most Alcohol Deaths 2019",
+      subtitle = "Council Area with Most Alcohol-specific Deaths in 2019",
       icon = icon("home"),
       color = "green"
     )

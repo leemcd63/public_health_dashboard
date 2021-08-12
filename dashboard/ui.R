@@ -20,17 +20,32 @@ ui <- dashboardPage(skin = "black",
                         tabItem("overview",
                                 fluidPage(
                                   fluidRow(
-                                    column(width = 12, align = "center",
+                                    column(width = 10, offset = 1, align = "center",
                                            tags$b("Scotland Health Overview", style = "font-size: 40px"),
-                                           p("Our country has an escalating problem with drugs deaths. 
-                                            In this dashboard we take a look at recent trends in drug
-                                            and alcohol deaths across the country.",
-                                            style = "font-family: 'arial'; font-si16pt"),
+                                           br(), br(),
+                                           p("Over recent years, Scotland has seen a continuous increase in deaths attributed 
+                                             to substance abuse.", 
+                                             br(), br(), 
+                                             "This dashboard is designed to give an at-a-glance view of KPIs regarding life expectancy,
+                                             drug related deaths and alcohol related deaths. The aim is to provide insights of how 
+                                             these differ over Time, Location and demographics such as Age and Gender.", 
+                                             br(), br(), 
+                                             tags$b("Please use the navigation panel on the left side of the page to view different pages of the dashboard."),
+                                             br(), br(), 
+                                             "All data is from 2009 to 2019, which has been sourced from the ", 
+                                             tags$a(tags$b(href="https://statistics.gov.scot/home", "Scottish Government Statistics Website")),
+                                             " and the ", 
+                                             tags$a(tags$b(href="https://www.nrscotland.gov.uk", "National Records of Scotland Website. ")),
+                                             br(), br(), br(), br(), 
+                                             "This dashboard has been built using ",
+                                             tags$a(tags$b(href="https://shiny.rstudio.com", "Shiny for RStudio ")),
+                                             "by ", tags$b("Tom Davie, Melanie Jayasinghe and Lee McDonald of CodeClan Cohort DE9"),
+                                            style = "font-family: 'arial'; font-size: 12pt;"),
                                     ),
                                   ),
                                   fluidRow(
                                     column(width = 4, offset = 4, align = "center",
-                                           
+                                           br(),
                                            box(width = NULL, solidHeader = TRUE, status = "warning",
                                                title = tags$b("Health in Scotland 2019", style = "font-size: 30px"),
                                                tags$b("Key Performance Indicators", style = "font-size: 20px"),
