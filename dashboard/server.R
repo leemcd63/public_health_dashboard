@@ -268,7 +268,7 @@ server <- function(input, output, session) {
               xaxis = list(title = "Year"),
               yaxis = list(title = "Life Expectancy in Years"),
               title = list(text = paste0(
-                input$area_input, ' - Life Expectancy from 2009-2019',
+                input$area_input, ' - Life Expectancy from 2009-2017',
                 '<br>',
                 '<sup>',
                 'Value shown with 95% Confidence Intervals',
