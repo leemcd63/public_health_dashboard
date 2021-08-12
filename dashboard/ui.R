@@ -20,11 +20,23 @@ ui <- dashboardPage(skin = "black",
                         tabItem("overview",
                                 fluidPage(
                                   fluidRow(
-                                    h1("Scotland Health Overview "),
-                                    p("Our country has an escalating problem with drugs deaths. 
+                                    column(width = 12, align = "center",
+                                           tags$b("Scotland Health Overview", style = "font-size: 40px"),
+                                           p("Our country has an escalating problem with drugs deaths. 
                                             In this dashboard we take a look at recent trends in drug
                                             and alcohol deaths across the country.",
-                                      style = "font-family: 'arial'; font-si16pt")                                ),
+                                            style = "font-family: 'arial'; font-si16pt"),
+                                    ),
+                                  ),
+                                  fluidRow(
+                                    column(width = 4, offset = 4, align = "center",
+                                           
+                                           box(width = NULL, solidHeader = TRUE, status = "warning",
+                                               title = tags$b("Health in Scotland 2019", style = "font-size: 30px"),
+                                               tags$b("Key Performance Indicators", style = "font-size: 20px"),
+                                           )
+                                    )
+                                  ),
                                   
                                   fluidRow(
                                     valueBoxOutput("avg_m"),
@@ -241,7 +253,7 @@ ui <- dashboardPage(skin = "black",
                         )
                       )
                     )
-
+                    
 )
 
 
