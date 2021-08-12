@@ -1,6 +1,339 @@
 # server ------------------------------------------------------------------
 
+
 server <- function(input, output, session) {
+  
+  # OVERVIEW PANEL --------------------
+  output$value <- renderText({ input$about })
+  
+  
+  output$avg_m <- renderValueBox({
+    
+    valueBox(
+      value = 
+        tags$p(life_expectancy_data %>%
+                 filter(date_code == "2017-2019",
+                        gender == "Male",
+                        measurement == "Count") %>%
+                 summarise(mean = round(mean(value), 1)) %>%
+                 pull(mean),
+               style = "font-size: 80%;"),
+      subtitle = "Average Life Expectancy of a Scottish Man in 2019",
+      icon = icon("heart"),
+      color = "blue"
+    )
+  })
+  
+  output$avg_f <- renderValueBox({
+    
+    valueBox(
+      value = 
+        tags$p(life_expectancy_data %>%
+                 filter(date_code == "2017-2019",
+                        gender == "Female",
+                        measurement == "Count") %>%
+                 summarise(mean = round(mean(value), 1)) %>%
+                 pull(mean),
+               style = "font-size: 80%;"),
+      subtitle = "Average Life Expectancy of a Scottish Woman in 2019",
+      icon = icon("heart"),
+      color = "blue"
+    )
+  })
+  
+  output$life_exp_area <- renderValueBox({
+    
+    valueBox(
+      value = 
+        tags$p(life_expectancy_data %>%
+                 filter(date_code == "2017-2019",
+                        measurement == "Count") %>%
+                 group_by(local_authority) %>%
+                 summarise(mean = mean(value)) %>%
+                 slice_min(mean) %>%
+                 pull(local_authority),
+               style = "font-size: 80%;"),
+      subtitle = "Council Area with the Lowest Life Expectancy in 2019",
+      icon = icon("home"),
+      color = "blue"
+    )
+  })
+  
+  output$most_drug_death <- renderValueBox({
+    
+    valueBox(
+      value = 
+        tags$p(drug_deaths %>% 
+                 filter(drug_name != "All drug-related deaths" & year == 2019) %>% 
+                 slice_max(num_deaths) %>% 
+                 pull(drug_name),
+               style = "font-size: 80%;"),
+      subtitle = "Most Lethal Drug 2019",
+      icon = icon("pills"),
+      color = "purple"
+    )
+  })
+  
+  output$total_drug_death <- renderValueBox({
+    
+    valueBox(
+      value = 
+        tags$p(drug_deaths %>% 
+                 filter(council_area == "Scotland" &
+                          drug_name == "All drug-related deaths" &
+                          year == 2019) %>%
+                 pull(num_deaths),
+               style = "font-size: 80%;"),
+      subtitle = "Drug Deaths 2019",
+      icon = icon("pills"),
+      color = "purple"
+    )
+  })
+  
+  output$worst_drug_area <- renderValueBox({
+    
+    valueBox(
+      value = 
+        tags$p(drug_deaths %>% 
+                 filter(drug_name == "All drug-related deaths" &
+                          year == 2019 &
+                          council_area != "Scotland") %>%
+                 slice_max(1) %>% 
+                 pull(council_area),
+               style = "font-size: 80%;"),
+      subtitle = "Council Area with Most Drug Deaths 2019",
+      icon = icon("home"),
+      color = "purple"
+    )
+  })
+  
+  output$alcohol_age <- renderValueBox({
+    
+    valueBox(
+      value = 
+        tags$p(alcohol_deaths %>% 
+                 drop_na(age_group) %>% 
+                 filter(year_of_death == 2019) %>% 
+                 slice_max(count, n = 1, with_ties = FALSE) %>% 
+                 pull(age_group),
+               style = "font-size: 80%;"),
+      subtitle = "Age of Most Alcohol-related Mortality in 2019",
+      icon = icon("wine-glass"),
+      color = "green"
+    )
+  })
+  
+  output$total_alc_death <- renderValueBox({
+    
+    valueBox(
+      value = 
+        tags$p(alcohol_deaths %>% 
+                 drop_na(age_group) %>% 
+                 filter(year_of_death == 2019) %>% 
+                 summarise(count = sum(count)) %>% 
+                 pull(count),
+               style = "font-size: 80%;"),
+      subtitle = "Total Alcohol Deaths 2019",
+      icon = icon("wine-glass"),
+      color = "green"
+    )
+  })
+  
+  output$worst_alcohol_area <- renderValueBox({
+
+    valueBox(
+      value = 
+        tags$p(alcohol_area %>% 
+                 filter(area != "All Scotland" &
+                          year_of_death == 2009) %>% 
+                 slice_max(count, n = 1) %>% 
+                 pull(area),
+               style = "font-size: 80%;"),
+      subtitle = "Council Area with Most Alcohol Deaths 2019",
+      icon = icon("home"),
+      color = "green"
+    )
+  })
+
+  # LIFE EXPECTANCY TAB ---------------------------------------------------------------
+
+  life_exp_map_filtered <- reactive({
+
+    if (input$year_input == "All") {
+      life_exp_year <- unique(life_expectancy_data$date_code)
+    } else {
+      life_exp_year <- input$year_input
+    }
+
+    if (input$gender_input == "All") {
+      life_exp_gender <- unique(life_expectancy_data$gender)
+    } else {
+      life_exp_gender <- input$gender_input
+    }
+
+    life_expectancy_data %>%
+      filter(gender %in% life_exp_gender,
+             measurement == "Count",
+             date_code %in% life_exp_year) %>%
+      group_by(local_authority) %>%
+      summarise(value = round(mean(value), 2)) %>%
+      left_join(scotland_shape, by = c("local_authority" = "local_auth")) %>%
+      st_as_sf()
+  })
+
+
+
+  output$life_exp_map <- renderLeaflet({
+
+    life_exp_map_filtered <- life_exp_map_filtered()
+
+    bins <- c(70, 72, 74, 76, 78, 80, 82, 84, 86)
+    pal <- colorBin("Blues", domain = life_exp_map_filtered$value, bins = bins)
+
+    life_exp_labels <- sprintf(
+      "<strong>%s</strong><br/>%g years",
+      life_exp_map_filtered$local_authority, life_exp_map_filtered$value
+    ) %>%
+      lapply(htmltools::HTML)
+
+
+    life_exp_map_filtered %>%
+      leaflet() %>%
+      setView(lng = -4.2026, lat = 57.8, zoom = 5.5, options = list()) %>%
+      addProviderTiles(providers$CartoDB.Positron)%>%
+      addPolygons(fillColor = ~pal(value),
+                  weight = 0.5,
+                  opacity = 0.9,
+                  color = "black",
+                  fillOpacity = 0.8,
+                  highlightOptions = highlightOptions(color = "white", weight = 2,
+                                                      bringToFront = TRUE),
+                  label = life_exp_labels,
+                  labelOptions = labelOptions(
+                    style = list("font-weight" = "normal", padding = "3px 8px"),
+                    textsize = "15px",
+                    direction = "auto")) %>%
+      addLegend(pal = pal, values = ~density, opacity = 0.7, title = NULL,
+                position = "bottomright")
+
+  })
+
+  life_exp_plot_filtered <- reactive({
+
+    if (input$area_input == "All") {
+      life_exp_area<- unique(life_expectancy_data$local_authority)
+    } else {
+      life_exp_area <- input$area_input
+    }
+
+    life_expectancy_data %>%
+      filter(local_authority %in% life_exp_area) %>%
+      pivot_wider(names_from = measurement,
+                  values_from = value) %>%
+      rename(lower = "95% Lower Confidence Limit", upper = "95% Upper Confidence Limit", value = "Count") %>%
+      mutate(date_code = as.numeric(str_extract(date_code, "^20[0-9]{2}"))) %>%
+      group_by(date_code, gender) %>%
+      summarise(upper = mean(upper), lower = mean(lower), value = mean(value))
+
+  })
+
+  output$life_expectancy_plot <- renderPlotly({
+
+    life_exp_plot_filtered <- life_exp_plot_filtered()
+     ggplotly(
+      ggplot(life_exp_plot_filtered) +
+        aes(x = date_code,
+            y = value,
+            fill = gender
+            
+            ) +
+        geom_point(aes(text = sprintf("Year: %g<br>Life Expectancy: %g<br>Gender: %s<br>Upper: %g<br>Lower: %g", date_code, value, gender, upper, lower))) +
+        geom_ribbon(aes(ymin = lower, ymax = upper, alpha = 0.2)) +
+        geom_line(colour = "black", alpha = 0.5) +
+        scale_y_continuous(breaks = c(70:85), limits = c(70, 85)) +
+        scale_x_continuous(n.breaks = 10) +
+        scale_fill_manual(values=c("aquamarine", "cornflowerblue")) +
+        theme_minimal()+
+        theme(panel.grid.major = element_line(colour = "grey"),
+              plot.background = element_rect(fill = "#ecf0f6"),
+              panel.background = element_rect(fill = "#ecf0f6")),
+      tooltip = c("text")
+    ) %>%
+       config(displayModeBar = FALSE) %>%
+       layout(legend = list(orientation = 'h',
+                            yanchor="bottom",
+                            y=0.99,
+                            xanchor="right",
+                            x=1),
+              xaxis = list(title = "Year"),
+              yaxis = list(title = "Life Expectancy in Years"),
+              title = list(text = paste0(
+                input$area_input, ' - Life Expectancy from 2009-2019',
+                '<br>',
+                '<sup>',
+                'Value shown with 95% Confidence Intervals',
+                '</sup>',
+                '<br>')),
+              margin = list(t = 50, b = 50, l = 50)
+       )
+  })
+  
+
+  all_life_exp_filtered <- reactive({
+    
+    if (input$all_year_input == "All Years (average)") {
+      life_exp_all<- unique(life_expectancy_data$date_code)
+    } else {
+      life_exp_all <- input$all_year_input
+    }
+    
+    life_expectancy_data %>%
+      filter(measurement == "Count",
+             date_code %in% life_exp_all) %>%
+      group_by(local_authority, gender) %>%
+      summarise(value = round(mean(value), 2))
+  })
+  
+  output$all_life_expectancy_plot <- renderPlotly({
+
+    all_life_exp_filtered <- all_life_exp_filtered()
+    
+    ggplotly(
+      ggplot(all_life_exp_filtered) +
+        aes(x = reorder(local_authority, -value),
+                 y = value,
+                 fill = gender,
+                 text = sprintf("Area: %s<br>Life Expectancy: %g<br>Gender: %s", local_authority, value, gender)) +
+      geom_bar(stat = "identity", color = "black", width = 0.5, position = position_dodge(width=0.7)) +
+      coord_cartesian(ylim = c(70,85)) +
+        scale_fill_manual(values=c("aquamarine", "cornflowerblue")) +
+        theme_minimal()+
+        theme(axis.text.x = element_text(angle = 60),
+              panel.grid.major = element_line(colour = "grey"),
+              plot.background = element_rect(fill = "#ecf0f6"),
+              panel.background = element_rect(fill = "#ecf0f6")),
+      tooltip = c("text")
+    ) %>%
+      config(displayModeBar = FALSE) %>%
+      layout(legend = list(orientation = 'h',
+                           yanchor="bottom",
+                           y=0.99,
+                           xanchor="right",
+                           x=1),
+             xaxis = list(title = ""),
+             yaxis = list(title = "Life Expectancy in Years"),
+             title = list(text = paste0(
+               'All Areas - Life Expectancy from ', input$all_year_input,
+               '<br>',
+               '<sup>',
+               'Value shown with 95% Confidence Intervals',
+               '</sup>',
+               '<br>')),
+             margin = list(t = 50, b = 50, l = 50)
+      )
+      
+      
+      })
   
   # DRUGS TAB -------------------------------------------------------------
   
@@ -151,10 +484,10 @@ server <- function(input, output, session) {
   
   alcohol_deaths_filtered <- reactive({
     
-    if(input$gender_input == "All") {
+    if(input$alc_gender_input == "All") {
       alcohol_plot_gender_selection <- unique(alcohol_deaths$gender)
     } else {
-      alcohol_plot_gender_selection <- input$gender_input
+      alcohol_plot_gender_selection <- input$alc_gender_input
     }
     
     
@@ -180,10 +513,10 @@ server <- function(input, output, session) {
   
   alcohol_area_filtered <- reactive({
     
-    if(input$year_input == "All") {
+    if(input$alc_year_input == "All") {
       alcohol_map_year_selection <- sort(unique(alcohol_area$year_of_death))
     } else {
-      alcohol_map_year_selection <- input$year_input
+      alcohol_map_year_selection <- input$alc_year_input
     }
     
     alcohol_area %>%
@@ -264,12 +597,13 @@ server <- function(input, output, session) {
                'Number of Alcohol Deaths per Year',
                '<br>',
                '<sup>',
-               'Gender: ', input$gender_input, '  -  Age Group: ', input$age_input,
+               'Gender: ', input$alc_gender_input, '  -  Age Group: ', input$age_input,
                '</sup>',
                '<br>')),
              margin = list(t = 50, b = 50, l = 50) # to fully display the x and y axis labels
       )
-             
 
   })
+
+
 }
