@@ -241,11 +241,7 @@ ui <- dashboardPage(skin = "black",
                         )
                       )
                     )
-                    
-                    
-                    
-                    
-                    
+
 )
 
 

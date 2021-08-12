@@ -18,6 +18,10 @@ life_expectancy_data <- read_csv(here("clean_data/life_expectancy_clean.csv")) %
   rename(gender = sex) %>%
   filter(age == "0 years")
 
+# Loading in Scotland shape file
+scotland_shape <- st_read(here("clean_data/shape_data/pub_las.shp")) %>%
+  st_simplify(dTolerance = 1000) %>%
+  st_transform("+proj=longlat +datum=WGS84")
 
 # Loading in drug data
 drug_deaths <- read_csv(here("clean_data/drug_deaths_clean.csv"))
