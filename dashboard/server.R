@@ -54,7 +54,7 @@ server <- function(input, output, session) {
                  pull(local_authority),
                style = "font-size: 80%;"),
       subtitle = "Council Area with the Lowest Life Expectancy in 2019",
-      icon = icon("heart"),
+      icon = icon("home"),
       color = "blue"
     )
   })
@@ -147,9 +147,9 @@ server <- function(input, output, session) {
                  filter(area != "All Scotland" &
                           year_of_death == 2009) %>% 
                  slice_max(count, n = 1) %>% 
-                 pull(count),
+                 pull(area),
                style = "font-size: 80%;"),
-      subtitle = "Area with Most Alcohol Deaths 2019",
+      subtitle = "Council Area with Most Alcohol Deaths 2019",
       icon = icon("home"),
       color = "green"
     )
@@ -484,10 +484,10 @@ server <- function(input, output, session) {
   
   alcohol_deaths_filtered <- reactive({
     
-    if(input$gender_input == "All") {
+    if(input$alc_gender_input == "All") {
       alcohol_plot_gender_selection <- unique(alcohol_deaths$gender)
     } else {
-      alcohol_plot_gender_selection <- input$gender_input
+      alcohol_plot_gender_selection <- input$alc_gender_input
     }
     
     
@@ -513,10 +513,10 @@ server <- function(input, output, session) {
   
   alcohol_area_filtered <- reactive({
     
-    if(input$year_input == "All") {
+    if(input$alc_year_input == "All") {
       alcohol_map_year_selection <- sort(unique(alcohol_area$year_of_death))
     } else {
-      alcohol_map_year_selection <- input$year_input
+      alcohol_map_year_selection <- input$alc_year_input
     }
     
     alcohol_area %>%
@@ -597,7 +597,7 @@ server <- function(input, output, session) {
                'Number of Alcohol Deaths per Year',
                '<br>',
                '<sup>',
-               'Gender: ', input$gender_input, '  -  Age Group: ', input$age_input,
+               'Gender: ', input$alc_gender_input, '  -  Age Group: ', input$age_input,
                '</sup>',
                '<br>')),
              margin = list(t = 50, b = 50, l = 50) # to fully display the x and y axis labels
