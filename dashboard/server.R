@@ -239,20 +239,28 @@ server <- function(input, output, session) {
     
   })
   
+  
   # LIFE EXPECTANCY PLOT
   output$life_expectancy_plot <- renderPlotly({
     
+    # load filtered data
     life_exp_plot_filtered <- life_exp_plot_filtered()
+    
+    # plotly wrapper for ggplot graph
     ggplotly(
       ggplot(life_exp_plot_filtered) +
         aes(x = date_code,
             y = value,
             fill = gender
-            
         ) +
-        geom_point(aes(text = sprintf("Year: %g<br>Life Expectancy: %g<br>Gender: %s<br>Upper: %g<br>Lower: %g", date_code, value, gender, upper, lower))) +
+        # add points and text for hover box
+        geom_point(aes(text = sprintf("Year: %g<br>Life Expectancy: %g<br>
+                                      Gender: %s<br>Upper: %g<br>Lower: %g", 
+                                      date_code, value, gender, upper, lower))) +
+        # add lines and ribbon with confidence intervals
         geom_ribbon(aes(ymin = lower, ymax = upper, alpha = 0.2)) +
         geom_line(colour = "black", alpha = 0.5) +
+        # set axis limits
         scale_y_continuous(breaks = c(70:85), limits = c(70, 85)) +
         scale_x_continuous(n.breaks = 10) +
         scale_fill_manual(values=c("aquamarine", "cornflowerblue")) +
@@ -262,6 +270,7 @@ server <- function(input, output, session) {
               panel.background = element_rect(fill = "#ecf0f6")),
       tooltip = c("text")
     ) %>%
+      # plotly configuration and axis labels
       config(displayModeBar = FALSE) %>%
       layout(legend = list(orientation = 'h',
                            yanchor="bottom",
@@ -277,6 +286,7 @@ server <- function(input, output, session) {
                'Value shown with 95% Confidence Intervals',
                '</sup>',
                '<br>')),
+             # Adjust plot margins so labels are visible
              margin = list(t = 50, b = 50, l = 50)
       )
   })
@@ -302,15 +312,19 @@ server <- function(input, output, session) {
   # LIFE EXPECTANCY ALL AREAS PLOT
   output$all_life_expectancy_plot <- renderPlotly({
     
+    # load filtered data
     all_life_exp_filtered <- all_life_exp_filtered()
     
+    # plotly wrapper for ggplot graph
     ggplotly(
       ggplot(all_life_exp_filtered) +
         aes(x = reorder(local_authority, -value),
             y = value,
             fill = gender,
+            # Text output for plotly hover box
             text = sprintf("Area: %s<br>Life Expectancy: %g<br>Gender: %s", local_authority, value, gender)) +
         geom_bar(stat = "identity", color = "black", width = 0.5, position = position_dodge(width=0.7)) +
+        # Set Y axis  limits at 70 and 85
         coord_cartesian(ylim = c(70,85)) +
         scale_fill_manual(values=c("aquamarine", "cornflowerblue")) +
         theme_minimal()+
@@ -320,6 +334,7 @@ server <- function(input, output, session) {
               panel.background = element_rect(fill = "#ecf0f6")),
       tooltip = c("text")
     ) %>%
+      # Plotly configuration and axis labels
       config(displayModeBar = FALSE) %>%
       layout(legend = list(orientation = 'h',
                            yanchor="bottom",
@@ -330,15 +345,10 @@ server <- function(input, output, session) {
              yaxis = list(title = "Life Expectancy in Years"),
              title = list(text = paste0(
                'All Areas - Life Expectancy from ', input$all_year_input,
-               '<br>',
-               '<sup>',
-               'Value shown with 95% Confidence Intervals',
-               '</sup>',
                '<br>')),
+             # Adjust plot margins so labels are visible
              margin = list(t = 50, b = 50, l = 50)
       )
-    
-    
   })
   
   # DRUGS TAB -------------------------------------------------------------
