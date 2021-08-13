@@ -15,8 +15,6 @@ ui <- dashboardPage(skin = "black",
                     dashboardBody(
                       tabItems(
                         # OVERVIEW PANEL ---------------------------------------
-                        
-                        
                         tabItem("overview",
                                 fluidPage(
                                   fluidRow(
@@ -82,12 +80,13 @@ ui <- dashboardPage(skin = "black",
                         # LIFE EXPECTANCY PANEL ---------------------------------------
                         tabItem(tabName = "life_expectancy",
                                 
-                                  fluidRow(
-                                    column(width = 12,
-                                           tags$b("Life Expectancy in Scotland", style = "font-size: 30px"),
-                                           
-                                    )
-                                  ),
+                                fluidRow(
+                                  column(width = 12,
+                                         tags$b("Life Expectancy in Scotland", style = "font-size: 30px"),
+                                         
+                                  )
+                                ),
+                                
                                 tabsetPanel(
                                   tabPanel("By Area",
                                            fluidRow(
@@ -106,7 +105,6 @@ ui <- dashboardPage(skin = "black",
                                                         ),
                                                         
                                                         
-                                                        
                                                         column(width = 6, align = "center",
                                                                
                                                                selectInput("gender_input",
@@ -120,11 +118,6 @@ ui <- dashboardPage(skin = "black",
                                                     leafletOutput("life_exp_map", height = 600)
                                                     
                                              ),
-                                             
-                                             
-                                             
-                                             
-                                             
                                              
                                              
                                              column(width = 6, align = "center",
@@ -179,12 +172,14 @@ ui <- dashboardPage(skin = "black",
                         
                         # DRUGS PANEL -------------------------------------------------------------
                         tabItem(tabName = "drug_deaths",
+                                
                                 fluidRow(
                                   column(width = 10,
                                          tags$b("Drug-related Deaths in Scotland", style = "font-size: 30px"),
                                          br(), br(), 
                                   )
                                 ),
+                                
                                 fluidRow(
                                   column(width = 6,
                                          box(width = NULL, solidHeader = TRUE, background = "purple",
@@ -195,20 +190,16 @@ ui <- dashboardPage(skin = "black",
                                                                             sort(unique(drug_deaths$year))),
                                                                 selected = "All")
                                              ),
+                                             
                                              column(width = 6, align = "center",
                                                     selectInput("drug_map_name",
                                                                 label = "Select Drug:",
                                                                 choices = sort(unique(drug_deaths$drug_name)),
                                                                 selected = "All drug-related deaths")
                                              )
-                                             
                                          ),
                                          
-                                         
-                                         
-                                         
                                          leafletOutput("drug_map", height = 600)
-                                         
                                          
                                   ),
                                   
@@ -264,8 +255,6 @@ ui <- dashboardPage(skin = "black",
                                   ),
                                   
                                   
-                                  
-                                  
                                   column(width = 6, align = "center",
                                          fluidRow(
                                            box(width = 12, solidHeader = TRUE, background = "green",
@@ -284,17 +273,11 @@ ui <- dashboardPage(skin = "black",
                                          fluidRow(
                                            plotlyOutput("alcohol_plot",  height = 600)
                                          )
-                                         
-                                         
                                   )
-                                  
-                                  
-                                  
                                 )
                         )
                       )
                     )
-                    
 )
 
 
