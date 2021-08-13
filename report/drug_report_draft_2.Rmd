@@ -20,7 +20,7 @@ Tom, Lee and Melanie
 
 **Lee** worked on drug data clean up, visualisations and resolving conflict merges for final version of app.
 
-**Melanie** worked on alcohol data clean up and life expectancy visualisations and report.
+**Melanie** worked on alcohol data clean up, life expectancy visualisations and report.
 
 **Everyone** worked on data cleaning, visualisations, and presentation.
 
@@ -38,7 +38,7 @@ The dashboard outlines our health topic in terms of showing how low life expecta
 * Git branching & version control
 * Choosing datasets
 * Data cleaning
-* Data Wrangling
+* Data wrangling
 * Deciding on visualisations
 * Creating visualisations
 * Creating dashboard frame
@@ -72,37 +72,35 @@ This dataset contains information on life expectancy of people by gender, and co
 This dataset was chosen as it shows the number of drug related deaths by local authority area and gender. It was used to create visualisations displaying the amount of deaths by area and by individual drug type.
 
 * Alcohol Deaths Dataset
-This dataset contains the number of alcohol related deaths by council area in Scotland. This was used to construct visualisations showing the number of alcohol deaths per year in each area and by gender in each year.
+This dataset contains the number of alcohol specific deaths by council area in Scotland. This was used to construct visualisations showing the number of alcohol deaths per year in each area and by gender in each year.
 
 * Data Zone Dataset
-This was used to match the data zones in each dataset with the local authority area. 
+This was used to match the data zones in each dataset with their local authority area. 
 
 
 ### Data quality and potential bias, including a brief summary of data cleaning and transformations
 
-According to the About tab on the dataset page/dedicated page online, the data quality ...
+According to the About tab on the datasets used from statistics.gov,scot the data has been quality assured by a statistician who was independent of the publication of the data. The data was checked by council against the same data produced by the ONS. These datasets have also been given the status of National Statistics as they conform with the Code of Practice for Official Statistics as set out in the Statistics and Registration Service Act 2007.
 
 The datasets may not be biased because they contain death and life expectancy figures for each local authority area of Scotland and so are probably representative of the population of study.
 
-To clean the datasets we standardised the names, assigned NA values to missing or incorrect information and removed unnecessary components from value entries such as commas.  This was done using Tidyverse.
+To clean the datasets we standardised the names, assigned NA values to missing or incorrect information, removed unnecessary components from value entries such as commas and selected the relevant variables needed for our visualisations.  This was carried out in R Studio using Tidyverse.
 
 ### How is the data on statistics.gov.scot stored and structured
 
-[**Hint**: This page offers a good starting point for understanding the data structure: https://guides.statistics.gov.scot/article/34-understanding-the-data-structure]
-
 The data on statistics.gov.scot is in the form of Linked Data.
 
-This means the datastore is made up of millions of statements or 'triples'. A 'triple' is a combination of three bits of information that make up a subject - predicate - object arrangement. 
+This means the datastore is made up of millions of statements or 'triples'. A 'triple' is a combination of three bits of information that make up a subject - predicate - object arrangement.  Subject and object are two nodes joined together by a predicate edge.   
 
 Benefits of storing the data like this are:
 
 Flexibility: No need to define schema in advance, therefore, altering the data model is easy.
+
 Efficient Querying: It's faster to retrieve information from a triple store, as opposed to pre-processing unstructured data. Triple stores already represent the required information in a way you can extract.
 
 ### Ethical and legal considerations of the data
 
-[**Hint:** this page contains information on the Open Government License which covers most datasets on statistics.gov.scot: http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/]
+The only legal consideration is to abide by the terms of the Open Government License.  The Open Government Licence states that people are free to copy and publish the data, adapt information and to use the data for commercial and non-commercial use.  
 
-
-There are no legal considerations, because the data used is open source and covered by the Open Government Licencse so it is available to anyone.  Ethical considerations are that the data contains death numbers by alcohol and drugs and causes of death by particular drug.  However the data is anonymised so individual cases cannot be identified. 
+Ethical considerations are that the datasets contain information on real individuals who have died from alcohol specific and drug related issues.  However the data is anonymised so individual cases cannot be identified. 
 
