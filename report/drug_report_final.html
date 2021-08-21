@@ -176,16 +176,16 @@ pre code {
 </div>
 <div id="roles-responsibilities-of-each-member" class="section level3">
 <h3>Roles &amp; responsibilities of each member</h3>
-<p><strong>Tom</strong> worked on life expectancy clean up, alcohol visualisations</p>
-<p><strong>Lee</strong> worked on drug clean up and visualisations</p>
-<p><strong>Melanie</strong> worked on alcohol clean up and life expectancy visualisations</p>
-<p><strong>Everyone</strong> worked on …</p>
+<p><strong>Tom</strong> worked on life expectancy data clean up, alcohol visualisations and presentation.</p>
+<p><strong>Lee</strong> worked on drug data clean up, visualisations and resolving conflict merges for final version of app.</p>
+<p><strong>Melanie</strong> worked on alcohol data clean up, life expectancy visualisations and report.</p>
+<p><strong>Everyone</strong> worked on data cleaning, visualisations, and presentation.</p>
 </div>
 <div id="brief-description-of-dashboard-topic" class="section level3">
 <h3>Brief description of dashboard topic</h3>
-<p>Our dashboard contains …</p>
-<p>Our health topic is …</p>
-<p>The dashboard outlines our health topic in terms of …</p>
+<p>Our dashboard contains an overview of the health of the population of Scotland in terms of life expectancy from 2009 to 2019 in each local authority area. The tabs Drug Deaths and Alcohol Deaths focus on the prevalence of deaths due to each substance in each region and how this varies over time.</p>
+<p>Our health topic is focused on the drug crisis in Scotland.</p>
+<p>The dashboard outlines our health topic in terms of showing how low life expectancy levels in areas could indicate deprivation and how that affects the number of drug and alcohol deaths in those areas.</p>
 </div>
 <div id="stages-of-the-project" class="section level3">
 <h3>Stages of the project</h3>
@@ -193,8 +193,16 @@ pre code {
 <li>Planning &amp; dashboard wireframe</li>
 <li>Git branching &amp; version control</li>
 <li>Choosing datasets</li>
+<li>Data cleaning</li>
+<li>Data wrangling</li>
+<li>Deciding on visualisations</li>
+<li>Creating visualisations</li>
+<li>Creating dashboard frame</li>
+<li>Integrating visualisations</li>
+<li>Solving merge conflicts</li>
+<li>Presentation planning.</li>
+<li>Creating report</li>
 </ul>
-<p>and so on …</p>
 </div>
 <div id="which-tools-were-used-in-the-project" class="section level3">
 <h3>Which tools were used in the project</h3>
@@ -202,36 +210,42 @@ pre code {
 <li>Zoom (daily stand-ups and occasional mob programming)</li>
 <li>Trello (planning &amp; task allocation)</li>
 <li>Git/GitHub (collaboration &amp; version control)</li>
+<li>R Studio and R Shiny (cleaning data and creating dashboard)</li>
+<li>Slack (communication and collaboration of ideas)</li>
 </ul>
-<p>and so on …</p>
 </div>
 <div id="how-did-you-gather-and-synthesise-requirements-for-the-project" class="section level3">
 <h3>How did you gather and synthesise requirements for the project?</h3>
-<p>We synthesised the information given in the brief by …</p>
-<p>We prioritised …</p>
+<p>We synthesised the information given in the brief by taking a number of steps. Firstly, we thoroughly read and digested the contents of the project brief to understand what was being asked of us. Following this, we spent some time researching online and understanding our topic: drug deaths, alcohol deaths and life expectancy in Scotland. Lastly, we had a meeting with the client in order to make sure we understood their requirements to tailor the dashboard towards their needs.</p>
+<p>We prioritised planning, app wireframing and building an MVP app.</p>
 </div>
 <div id="motivations-for-using-the-data-you-have-chosen" class="section level3">
 <h3>Motivations for using the data you have chosen</h3>
-<p>We used the dataset on … to answer … and because it was …</p>
+<ul>
+<li><p>Life Expectancy Dataset This dataset contains information on life expectancy of people by gender, and council area in Scotland, arranged by age range. This data was used to create visualisations that show how life expectancy changes over time from 2009 to 2019 in each area.</p></li>
+<li><p>Drug Deaths Dataset This dataset was chosen as it shows the number of drug related deaths by local authority area and gender. It was used to create visualisations displaying the amount of deaths by area and by individual drug type.</p></li>
+<li><p>Alcohol Deaths Dataset This dataset contains the number of alcohol specific deaths by council area in Scotland. This was used to construct visualisations showing the number of alcohol deaths per year in each area and by gender in each year.</p></li>
+<li><p>Data Zone Dataset This was used to match the data zones in each dataset with their local authority area.</p></li>
+</ul>
 </div>
 <div id="data-quality-and-potential-bias-including-a-brief-summary-of-data-cleaning-and-transformations" class="section level3">
 <h3>Data quality and potential bias, including a brief summary of data cleaning and transformations</h3>
-<p>According to the About tab on the dataset page/dedicated page online, the data quality …</p>
-<p>The dataset may/may not be biased because …</p>
-<p>To clean the datasets we …</p>
+<p>According to the About tab on the datasets used from statistics.gov,scot the data has been quality assured by a statistician who was independent of the publication of the data. The data was checked by council against the same data produced by the ONS. These datasets have also been given the status of National Statistics as they conform with the Code of Practice for Official Statistics as set out in the Statistics and Registration Service Act 2007.</p>
+<p>The datasets may not be biased because they contain death and life expectancy figures for each local authority area of Scotland and so are probably representative of the population of study.</p>
+<p>To clean the datasets we standardised the names, assigned NA values to missing or incorrect information, removed unnecessary components from value entries such as commas and selected the relevant variables needed for our visualisations. This was carried out in R Studio using Tidyverse.</p>
 </div>
 <div id="how-is-the-data-on-statistics.gov.scot-stored-and-structured" class="section level3">
 <h3>How is the data on statistics.gov.scot stored and structured</h3>
-<p>[<strong>Hint</strong>: This page offers a good starting point for understanding the data structure: <a href="https://guides.statistics.gov.scot/article/34-understanding-the-data-structure" class="uri">https://guides.statistics.gov.scot/article/34-understanding-the-data-structure</a>]</p>
-<p>The data on statistics.gov.scot is in the form of …</p>
-<p>This means …</p>
-<p>Benefits of storing the data like this are …</p>
+<p>The data on statistics.gov.scot is in the form of Linked Data.</p>
+<p>This means the datastore is made up of millions of statements or ‘triples’. A ‘triple’ is a combination of three bits of information that make up a subject - predicate - object arrangement. Subject and object are two nodes joined together by a predicate edge.</p>
+<p>Benefits of storing the data like this are:</p>
+<p>Flexibility: No need to define schema in advance, therefore, altering the data model is easy.</p>
+<p>Efficient Querying: It’s faster to retrieve information from a triple store, as opposed to pre-processing unstructured data. Triple stores already represent the required information in a way you can extract.</p>
 </div>
 <div id="ethical-and-legal-considerations-of-the-data" class="section level3">
 <h3>Ethical and legal considerations of the data</h3>
-<p>[<strong>Hint:</strong> this page contains information on the Open Government License which covers most datasets on statistics.gov.scot: <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" class="uri">http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/</a>]</p>
-<p>There are no/There may be ethical considerations, because …</p>
-<p>The datasets are covered by the Open Government License, which means …</p>
+<p>The only legal consideration is to abide by the terms of the Open Government License. The Open Government Licence states that people are free to copy and publish the data, adapt information and to use the data for commercial and non-commercial use.</p>
+<p>Ethical considerations are that the datasets contain information on real individuals who have died from alcohol specific and drug related issues. However the data is anonymised so individual cases cannot be identified.</p>
 </div>
 
 

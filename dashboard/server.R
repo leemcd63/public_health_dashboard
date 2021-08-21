@@ -177,7 +177,7 @@ server <- function(input, output, session) {
              measurement == "Count",
              date_code %in% life_exp_year) %>%
       group_by(local_authority) %>%
-      summarise(value = round(mean(value), 2)) %>%
+      summarise(value = round(mean(value), 1)) %>%
       left_join(scotland_shape, by = c("local_authority" = "local_auth")) %>%
       st_as_sf()
   })
